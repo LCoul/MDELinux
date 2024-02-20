@@ -1,8 +1,8 @@
 # Deploy MDE Using Ansible
 
-## Use PowerShell on Your Local Computer
-Connect to your Ansible control node server, for example using this command:<br>
-_<ssh rod@IPAddress -p 45163>_ (the IPAddress could also be the FQDN of the server, **-p** specifies the ssh port if TCP port 22 is not the default). Answer 'yes' when prompted if you are sure to continue connecting, and provide the login password when prompted.<br>
+## Connect to Ansible COntrol Node
+From a shell (for example PowerShell), connect to your Ansible control node server with the following command: _<**ssh rod@IPAddress -p 45163**>_<br>
+The IPAddress could also be the FQDN of the server, **-p** specifies the ssh port if TCP port 22 is not the default. Answer 'yes' when prompted if you are sure to continue connecting, and provide the login password when prompted.<br>
 ```PowerShell
 ssh rod@IPAddress -p 45163
 ```
