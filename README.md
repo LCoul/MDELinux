@@ -1,8 +1,8 @@
 # Local Computer
-Connect to your Ansible control node server, for example using this command: ssh rod@ms-012.myworkspace.microsoft.com -p 45163.
-ms-012.myworkspace.microsoft.com could also be an IP address.
-Answer 'yes' when prompted if you are sure to continue connecting
-Provide the login password when prompted
+Connect to your Ansible control node server, for example using this command:<br>
+_ssh rod@ms-012.myworkspace.microsoft.com -p 45163_ (ms-012.myworkspace.microsoft.com could also be an IP address).<br>
+Answer 'yes' when prompted if you are sure to continue connecting<br>
+Provide the login password when prompted.<br>
 ```# ssh rod@ms-012.myworkspace.microsoft.com -p 45163```
 
 # Ansible control node
@@ -36,9 +36,12 @@ Provide the login password when prompted
 * Create an Ansible administrator user account
 Run command 'id username' to verify that the user is member of the sudo group.
 Run the command 'su - username' to login as the newly created user
-```sudo useradd -m lessi && sudo passwd lessi && sudo usermod -aG sudo lessi```<br>
-```id lessi```<br>
-```su - lessi```<br>
+
+```bash
+sudo useradd -m lessi && sudo passwd lessi && sudo usermod -aG sudo lessi
+id lessi
+su - lessi
+```
 ![Create admin user](/image-1.png)
 
 ## Create the .ssh folder and the authorized_keys inside that forder to hold your public keys
