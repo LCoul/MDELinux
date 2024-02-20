@@ -6,51 +6,43 @@ ssh rod@ms-012.myworkspace.microsoft.com -p 45163
 ```
 <details>
 
-<summary>Ansible Control Node</summary>
-
-### Control Node server details
-View the details of the control node
-    Update and upgrade the server
-
+# Ansible control node
+* View the details of the control node
+    * Update and upgrade the server<br>
     ```bash
-    sudo apt update && sudo apt upgrade
+    ```sudo apt update && sudo apt upgrade```
     ```
-
-    View the hostname
+    * View the hostname<br>
    ```bash
-    hostname
+    ```hostname```
     ```
+    * View the fully qualified domain name (FQDN) of the host<br>
+    ```bash
+    ```hostname --fqdn```
+    ```
+    * View the detail of the server using _lsb_release -a_'. Notice the Linux distribution, the release (version), and the codename<br>
+    ```bash
+    ``` lsb_release -a```
+    ```
+* Create a private/public key pair that you use to automate tasks using Ansible<br>
+```bash
+```ssh-keygen -t rsa -C "ControlNodeKey" -f ansible/ControlNode```
+```sudo vim ~/.ssh/config (add the following line: IdentityFile ~/.ssh/ControlNode)```
+```
 
-    View the fully qualified domain name (FQDN) of the host<br>
-    ```bash
-    hostname --fqdn
-    ```
-    
-    View the detail of the server using _lsb_release -a_'. Notice the Linux distribution, the release (version), and the codename<br>
-    ```bash
-    lsb_release -a
-    ```
-    Create a private/public key pair that you use to automate tasks using Ansible<br>
-    ```bash
-    ssh-keygen -t rsa -C "ControlNodeKey" -f ansible/ControlNode
-    sudo vim ~/.ssh/config (add the following line: IdentityFile ~/.ssh/ControlNode)
-    ```
-
-    Create folder in your working directory named ansible
-    ```bash
-    mkdir ansible
-    ```
-    Create a file named hosts and add your Linux devices to the file
-    ```bash
-    sudo vim ansible/hosts
-
+* Create folder in your working directory named ansible<br>
+```bash
+```mkdir ansible```
+```
+* Create a file named hosts and add your Linux devices to the file<br>
+```bash
+```sudo vim ansible/hosts```
+```
 </details>
 
-<details>
+# Ansible managed node
 
-<summary>Ansible managed node</summary>
-
-Create an Ansible administrator user account
+* Create an Ansible administrator user account
 Run command __id username'__ to verify that the user is member of the sudo group.
 Run the command __su - username__ to login as the newly created user.
 
@@ -59,9 +51,9 @@ Run the command __su - username__ to login as the newly created user.
     id lessi
     su - lessi
     ```
-    ![Create admin user](/image-1.png)
+![Create admin user](/image-1.png)
 
-</details>
+
 
 ## Reference Documents
 [Deploy Microsoft Defender for Endpoint on Linux with Ansible](https://learn.microsoft.com/en-us/microsoft-365/security/defender-endpoint/linux-install-with-ansible?view=o365-worldwide)
