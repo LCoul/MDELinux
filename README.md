@@ -2,7 +2,8 @@
 
 ## Use PowerShell on Your Local Computer
 Connect to your Ansible control node server, for example using this command:<br>
-_<ssh rod@ms-012.myworkspace.microsoft.com -p 45163>_ (ms-012.myworkspace.microsoft.com could also be an IP address). Answer 'yes' when prompted if you are sure to continue connecting, and provide the login password when prompted.<br>
+_<ssh rod@ms-012.myworkspace.microsoft.com -p 45163>_ (ms-012.myworkspace.microsoft.com could also be an IP address).<br> 
+Answer 'yes' when prompted if you are sure to continue connecting, and provide the login password when prompted.<br>
 ```PowerShell
 ssh rod@ms-012.myworkspace.microsoft.com -p 45163
 ```
@@ -45,8 +46,8 @@ sudo vim ansible/hosts
 
 ## Ansible Managed Nodes
 
-Create an Ansible administrator user account
-Run command _<id username>_ to verify that the user is member of the sudo group.
+Create an Ansible administrator user account<br>
+Run the _<id username>_ command to verify that the user is member of the sudo group.<br>
 Run the command _<su - username>_ to login as the newly created user.
 
 ```bash
@@ -59,7 +60,7 @@ su - lessi
 <br>
 
 ## Reference Documents
-[Deploy Microsoft Defender for Endpoint on Linux with Ansible](https://learn.microsoft.com/en-us/microsoft-365/security/defender-endpoint/linux-install-with-ansible?view=o365-worldwide)
+[Deploy Microsoft Defender for Endpoint on Linux with Ansible](https://learn.microsoft.com/en-us/microsoft-365/security/defender-endpoint/linux-install-with-ansible?view=o365-worldwide)<br>
 [Installing Ansible - Ansible Documentation](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html)
 
 
