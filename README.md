@@ -51,6 +51,7 @@ _<sudo useradd -m user && sudo passwd user && sudo usermod -aG sudo user>_<br>
 - create a user: *sudo useradd -m user* (-m creates the user's directory)
 - set the user password: *sudo passwd user*
 - add the user to the sudo group: *sudo usermod -aG user*<br>
+
 Run the _<id - user>_ command to verify that the user is member of the sudo group.<br>
 Run the _<su - user>_ command to login as the newly created user.
 
