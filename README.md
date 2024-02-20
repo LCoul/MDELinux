@@ -5,38 +5,38 @@ _ssh rod@ms-012.myworkspace.microsoft.com -p 45163_ (ms-012.myworkspace.microsof
 ssh rod@ms-012.myworkspace.microsoft.com -p 45163
 ```
 <details>
-<summary>Ansible control node</summary>
+        <summary>Ansible control node</summary>
 
 
-Update and upgrade the server
-```bash
-sudo apt update && sudo apt upgrade
-```
-View the hostname
-```bash
-hostname
-```
-View the fully qualified domain name (FQDN) of the host
-```bash
-hostname --fqdn
-```
-View the detail of the server using _lsb_release -a_'. Notice the Linux distribution, the release (version), and the codename.
-```bash
-lsb_release -a
-```
-Create a private/public key pair that you use to automate tasks using Ansible
-```bash
-ssh-keygen -t rsa -C "ControlNodeKey" -f ansible/ControlNode
-sudo vim ~/.ssh/config (add the following line: IdentityFile ~/.ssh/ControlNode)
-```
-Create folder in your working directory named ansible
-```bash
-mkdir ansible
-```
-Create a file named hosts and add your Linux devices to the file
-```bash
-sudo vim ansible/hosts
-```
+        Update and upgrade the server
+        ```bash
+        sudo apt update && sudo apt upgrade
+        ```
+        View the hostname
+        ```bash
+        hostname
+        ```
+        View the fully qualified domain name (FQDN) of the host
+        ```bash
+        hostname --fqdn
+        ```
+        View the detail of the server using _lsb_release -a_'. Notice the Linux distribution, the release (version), and the codename.
+        ```bash
+        lsb_release -a
+        ```
+        Create a private/public key pair that you use to automate tasks using Ansible
+        ```bash
+        ssh-keygen -t rsa -C "ControlNodeKey" -f ansible/ControlNode
+        sudo vim ~/.ssh/config (add the following line: IdentityFile ~/.ssh/ControlNode)
+        ```
+        Create folder in your working directory named ansible
+        ```bash
+        mkdir ansible
+        ```
+        Create a file named hosts and add your Linux devices to the file
+        ```bash
+        sudo vim ansible/hosts
+        ```
 </details>
 
 # Ansible managed node
