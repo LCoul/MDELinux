@@ -1,12 +1,14 @@
-# Local Computer
+# Deploy MDE Using Ansible
+
+## Use PowerShell on Your Local Computer
 Connect to your Ansible control node server, for example using this command:<br>
 _ssh rod@ms-012.myworkspace.microsoft.com -p 45163_ (ms-012.myworkspace.microsoft.com could also be an IP address). Answer 'yes' when prompted if you are sure to continue connecting, and provide the login password when prompted.<br>
 ```PowerShell
 ssh rod@ms-012.myworkspace.microsoft.com -p 45163
 ```
 
-# Ansible Control Node
-
+## Ansible Control Node
+### Basic Configurations
 View the details of the control node
 Update and upgrade the server<br>
 ```bash
@@ -39,8 +41,9 @@ Create a file named hosts and add your Linux devices to the file<br>
 ```bash
 sudo vim ansible/hosts
 ```
+### Install Ansible
 
-# Ansible Managed Nodes
+## Ansible Managed Nodes
 
 Create an Ansible administrator user account
 Run command _id username_ to verify that the user is member of the sudo group.
