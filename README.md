@@ -3,7 +3,9 @@ Connect to your Ansible control node server, for example using this command:<br>
 _ssh rod@ms-012.myworkspace.microsoft.com -p 45163_ (ms-012.myworkspace.microsoft.com could also be an IP address).<br>
 Answer 'yes' when prompted if you are sure to continue connecting<br>
 Provide the login password when prompted.<br>
-```# ssh rod@ms-012.myworkspace.microsoft.com -p 45163```
+```PowerShell
+ssh rod@ms-012.myworkspace.microsoft.com -p 45163
+```
 
 # Ansible control node
 * View the details of the control node
@@ -35,7 +37,7 @@ Provide the login password when prompted.<br>
 
 * Create an Ansible administrator user account
 Run command 'id username' to verify that the user is member of the sudo group.
-Run the command 'su - username' to login as the newly created user
+Run the command _su - username_ to login as the newly created user.
 
     ```bash
     sudo useradd -m lessi && sudo passwd lessi && sudo usermod -aG sudo lessi
