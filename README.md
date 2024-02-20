@@ -1,4 +1,4 @@
-# LOCAL COMPUTER USING POWERSHELL
+# Local Computer Using PowerShell
 
 ## Generate a private/public key pair that you can use for connection between the Control Node and the Managed Nodes
 Connect to the server, for example using this command: ssh rod@ms-012.myworkspace.microsoft.com -p 45163.
@@ -40,15 +40,15 @@ Notice the Linux distribution, the release (version), and the codename
 ## Create an Ansible administrator user account
 Run command 'id username' to verify that the user is member of the sudo group.
 Run the command 'su - username' to login as the newly created user
-```sudo useradd -m lessi && sudo passwd lessi && sudo usermod -aG sudo lessi```
-```id lessi```
-```su - lessi```
-![alt text](image-1.png)
+```sudo useradd -m lessi && sudo passwd lessi && sudo usermod -aG sudo lessi```<br>
+```id lessi```<br>
+```su - lessi```<br>
+![Create Admin User](image-1.png)
 
 ## Create the .ssh folder and the authorized_keys inside that forder to hold your public keys
 
 
 ## Reference Documents
-[link text](https://learn.microsoft.com/en-us/microsoft-365/security/defender-endpoint/linux-install-with-ansible?view=o365-worldwide)
+[Deploy Microsoft Defender for Endpoint on Linux with Ansible](https://learn.microsoft.com/en-us/microsoft-365/security/defender-endpoint/linux-install-with-ansible?view=o365-worldwide)
 
 
