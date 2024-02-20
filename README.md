@@ -3,7 +3,7 @@ Connect to your Ansible control node server, for example using this command: ssh
 ms-012.myworkspace.microsoft.com could also be an IP address.
 Answer 'yes' when prompted if you are sure to continue connecting
 Provide the login password when prompted
-```#ssh rod@ms-012.myworkspace.microsoft.com -p 45163```
+```# ssh rod@ms-012.myworkspace.microsoft.com -p 45163```
 
 # Ansible control node
 * View the details of the control node
