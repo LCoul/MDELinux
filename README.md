@@ -48,7 +48,7 @@ sudo vim ansible/hosts
 
 Create an Ansible administrator user account<br>
 Run the _<id - user>_ command to verify that the user is member of the sudo group.<br>
-Run the command _<su - user>_ to login as the newly created user.
+Run the _<su - user>_ command to login as the newly created user.
 
 ```bash
 sudo useradd -m lessi && sudo passwd lessi && sudo usermod -aG sudo lessi
