@@ -47,8 +47,8 @@ sudo vim ansible/hosts
 ## Ansible Managed Nodes
 
 Create an Ansible administrator user account<br>
-Run the _<id username>_ command to verify that the user is member of the sudo group.<br>
-Run the command _<su - username>_ to login as the newly created user.
+Run the _<id user>_ command to verify that the user is member of the sudo group.<br>
+Run the command _<su - user>_ to login as the newly created user.
 
 ```bash
 sudo useradd -m lessi && sudo passwd lessi && sudo usermod -aG sudo lessi
