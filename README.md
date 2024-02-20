@@ -5,7 +5,7 @@ _ssh rod@ms-012.myworkspace.microsoft.com -p 45163_ (ms-012.myworkspace.microsof
 ssh rod@ms-012.myworkspace.microsoft.com -p 45163
 ```
 
-# Ansible control node
+# Ansible Control Node
 
 View the details of the control node
 Update and upgrade the server<br>
@@ -20,7 +20,8 @@ View the fully qualified domain name (FQDN) of the host<br>
 ```bash
 hostname --fqdn
 ```
-View the detail of the server using _lsb_release -a_'. Notice the Linux distribution, the release (version), and the codename<br>
+View the detail of the server using _lsb_release -a_.<br> 
+Notice the Linux distribution, the release (version), and the codename<br>
 ```bash
 lsb_release -a
 ```
@@ -39,11 +40,11 @@ Create a file named hosts and add your Linux devices to the file<br>
 sudo vim ansible/hosts
 ```
 
-# Ansible managed node
+# Ansible Managed Nodes
 
 Create an Ansible administrator user account
-Run command __id username'__ to verify that the user is member of the sudo group.
-Run the command __su - username__ to login as the newly created user.
+Run command _id username_ to verify that the user is member of the sudo group.
+Run the command _su - username_ to login as the newly created user.
 
 ```bash
 sudo useradd -m lessi && sudo passwd lessi && sudo usermod -aG sudo lessi
@@ -53,9 +54,10 @@ su - lessi
 ![Create admin user](/image-1.png)
 
 
-
+<br><br>
 
 ## Reference Documents
 [Deploy Microsoft Defender for Endpoint on Linux with Ansible](https://learn.microsoft.com/en-us/microsoft-365/security/defender-endpoint/linux-install-with-ansible?view=o365-worldwide)
+[Installing Ansible - Ansible Documentation](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html)
 
 
