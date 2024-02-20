@@ -1,0 +1,7 @@
+- hosts: dev:prod
+  become: true
+  tasks:
+    - name: Uninstall MDATP
+      apt:
+        name: mdatp
+        state: absent

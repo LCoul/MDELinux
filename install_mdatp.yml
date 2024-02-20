@@ -1,0 +1,10 @@
+- hosts: dev:prod
+  become: true
+  tasks:
+    - ansible.builtin.include_tasks: onboarding_setup.yml
+    - ansible.builtin.include_tasks: add_mdatp_repo.yml
+    - name: Install MDATP
+      apt:
+        name: mdatp
+        state: latest
+        update_cache: yes
