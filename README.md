@@ -39,7 +39,7 @@ Run the command 'su - username' to login as the newly created user
 >```sudo useradd -m lessi && sudo passwd lessi && sudo usermod -aG sudo lessi```<br>
 >```id lessi```<br>
 >```su - lessi```<br>
-![Create Admin User](/assets/images/image-1.png)
+![Create admin user](image-1.png "create admin user")
 
 ## Create the .ssh folder and the authorized_keys inside that forder to hold your public keys
 
