@@ -48,7 +48,7 @@ sudo vim ansible/hosts
 
 Create an Ansible administrator user account running the following command:<br>
 _<sudo useradd -m user && sudo passwd user && sudo usermod -aG sudo user>_<br>
-- create a user: *sudo useradd -m user* (-m creates the user's directory)
+- create a user: <span style="color:green;font-weight:700;font-size:20px">*sudo useradd -m user* (-m creates the user's directory)</span>
 - set the user password: *sudo passwd user*
 - add the user to the sudo group: *sudo usermod -aG user*<br>
 
