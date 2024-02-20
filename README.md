@@ -2,7 +2,7 @@
 
 ## Use PowerShell on Your Local Computer
 Connect to your Ansible control node server, for example using this command:<br>
-_<ssh rod@ms-012.myworkspace.microsoft.com -p 45163>_ (ms-012.myworkspace.microsoft.com could also be an IP address).<br> 
+_<ssh rod@IPAddress -p 45163>_ (the IPAddress could also be the FQDN of the server, **-p** specifies the ssh port if TCP port 22 is not the default).<br> 
 Answer 'yes' when prompted if you are sure to continue connecting, and provide the login password when prompted.<br>
 ```PowerShell
 ssh rod@ms-012.myworkspace.microsoft.com -p 45163
@@ -48,9 +48,9 @@ sudo vim ansible/hosts
 
 Create an Ansible administrator user account running the following command:<br>
 _<sudo useradd -m user && sudo passwd user && sudo usermod -aG sudo user>_<br>
-- <span style="color:green;font-weight:700;font-size:20px">*sudo useradd -m user*: creates a user (-m creates the user's directory).</span>
-- *sudo passwd user*: sets the user password.
-- *sudo usermod -aG user*: adds the user to the sudo group.<br>
+- **sudo useradd -m user**: creates a user (-m creates the user's directory).
+- **sudo passwd user**: sets the user password.
+- **sudo usermod -aG user**: adds the user to the sudo group.<br>
 
 Run the _<id - user>_ command to verify that the user is member of the sudo group.<br>
 Run the _<su - user>_ command to login as the newly created user.
