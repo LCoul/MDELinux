@@ -7,6 +7,7 @@ ssh rod@ms-012.myworkspace.microsoft.com -p 45163
 <details>
 <summary>Ansible control node</summary>
 
+
 Update and upgrade the server
 ```bash
 sudo apt update && sudo apt upgrade
@@ -49,7 +50,7 @@ Run the command __su - username__ to login as the newly created user.
     id lessi
     su - lessi
     ```
-![Create admin user](/image-1.png)
+    ![Create admin user](/image-1.png)
 
 
 
