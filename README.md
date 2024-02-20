@@ -11,32 +11,36 @@ ssh rod@ms-012.myworkspace.microsoft.com -p 45163
 ### Control Node server details
 View the details of the control node
     Update and upgrade the server
+
     ```bash
     sudo apt update && sudo apt upgrade
     ```
-    View the hostname<br>
+
+    View the hostname
    ```bash
     hostname
     ```
-    * View the fully qualified domain name (FQDN) of the host<br>
+
+    View the fully qualified domain name (FQDN) of the host<br>
     ```bash
     hostname --fqdn
     ```
+    
     View the detail of the server using _lsb_release -a_'. Notice the Linux distribution, the release (version), and the codename<br>
     ```bash
     lsb_release -a
     ```
-Create a private/public key pair that you use to automate tasks using Ansible<br>
+    Create a private/public key pair that you use to automate tasks using Ansible<br>
     ```bash
     ssh-keygen -t rsa -C "ControlNodeKey" -f ansible/ControlNode
     sudo vim ~/.ssh/config (add the following line: IdentityFile ~/.ssh/ControlNode)
     ```
 
-Create folder in your working directory named ansible
+    Create folder in your working directory named ansible
     ```bash
     mkdir ansible
     ```
-Create a file named hosts and add your Linux devices to the file
+    Create a file named hosts and add your Linux devices to the file
     ```bash
     sudo vim ansible/hosts
 
@@ -56,7 +60,7 @@ Run the command __su - username__ to login as the newly created user.
     su - lessi
     ```
     ![Create admin user](/image-1.png)
-    
+
 </details>
 
 ## Reference Documents
