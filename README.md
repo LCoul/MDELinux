@@ -5,46 +5,49 @@ _ssh rod@ms-012.myworkspace.microsoft.com -p 45163_ (ms-012.myworkspace.microsof
 ssh rod@ms-012.myworkspace.microsoft.com -p 45163
 ```
 <details>
-<summary>Ansible control node</summary>
 
-### View the control node server details
-* View the details of the control node
-    * Update and upgrade the server<br>
+<summary>Ansible Control Node</summary>
+
+### Control Node server details
+View the details of the control node
+    Update and upgrade the server
     ```bash
-    ```sudo apt update && sudo apt upgrade```
+    sudo apt update && sudo apt upgrade
     ```
-    * View the hostname<br>
+    View the hostname<br>
    ```bash
-    ```hostname```
+    hostname
     ```
     * View the fully qualified domain name (FQDN) of the host<br>
     ```bash
-    ```hostname --fqdn```
+    hostname --fqdn
     ```
-    * View the detail of the server using _lsb_release -a_'. Notice the Linux distribution, the release (version), and the codename<br>
+    View the detail of the server using _lsb_release -a_'. Notice the Linux distribution, the release (version), and the codename<br>
     ```bash
-    ``` lsb_release -a```
+    lsb_release -a
     ```
-* Create a private/public key pair that you use to automate tasks using Ansible<br>
+Create a private/public key pair that you use to automate tasks using Ansible<br>
     ```bash
-    ```ssh-keygen -t rsa -C "ControlNodeKey" -f ansible/ControlNode```
-    ```sudo vim ~/.ssh/config (add the following line: IdentityFile ~/.ssh/ControlNode)```
+    ssh-keygen -t rsa -C "ControlNodeKey" -f ansible/ControlNode
+    sudo vim ~/.ssh/config (add the following line: IdentityFile ~/.ssh/ControlNode)
     ```
 
-* Create folder in your working directory named ansible<br>
+Create folder in your working directory named ansible
     ```bash
-    ```mkdir ansible```
+    mkdir ansible
     ```
-* Create a file named hosts and add your Linux devices to the file<br>
+Create a file named hosts and add your Linux devices to the file
     ```bash
-    ```sudo vim ansible/hosts```
-</details>    ```
+    sudo vim ansible/hosts
+
+</details>
 
 <details>
+
 <summary>Ansible managed node</summary>
 
-* Create an Ansible administrator user account
-Run command __id username'__ to verify that the user is member of the sudo group.<br>
+Create an Ansible administrator user account
+Run command __id username'__ to verify that the user is member of the sudo group.
 Run the command __su - username__ to login as the newly created user.
 
     ```bash
@@ -53,6 +56,7 @@ Run the command __su - username__ to login as the newly created user.
     su - lessi
     ```
     ![Create admin user](/image-1.png)
+    
 </details>
 
 ## Reference Documents
