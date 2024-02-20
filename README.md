@@ -2,10 +2,9 @@
 
 ## Use PowerShell on Your Local Computer
 Connect to your Ansible control node server, for example using this command:<br>
-_<ssh rod@IPAddress -p 45163>_ (the IPAddress could also be the FQDN of the server, **-p** specifies the ssh port if TCP port 22 is not the default).<br> 
-Answer 'yes' when prompted if you are sure to continue connecting, and provide the login password when prompted.<br>
+_<ssh rod@IPAddress -p 45163>_ (the IPAddress could also be the FQDN of the server, **-p** specifies the ssh port if TCP port 22 is not the default). Answer 'yes' when prompted if you are sure to continue connecting, and provide the login password when prompted.<br>
 ```PowerShell
-ssh rod@ms-012.myworkspace.microsoft.com -p 45163
+ssh rod@IPAddress -p 45163
 ```
 
 ## Ansible Control Node
