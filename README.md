@@ -37,11 +37,11 @@ Provide the login password when prompted.<br>
 Run command 'id username' to verify that the user is member of the sudo group.
 Run the command 'su - username' to login as the newly created user
 
-```bash
-sudo useradd -m lessi && sudo passwd lessi && sudo usermod -aG sudo lessi
-id lessi
-su - lessi
-```
+    ```bash
+    sudo useradd -m lessi && sudo passwd lessi && sudo usermod -aG sudo lessi
+    id lessi
+    su - lessi
+    ```
 ![Create admin user](/image-1.png)
 
 ## Create the .ssh folder and the authorized_keys inside that forder to hold your public keys
