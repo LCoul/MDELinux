@@ -1,5 +1,5 @@
 <details>
-<summary><h2>Deploy Manually: RedHat Server</h2><hr></summary>
+<summary><h3>Deploy Manually: RedHat Server</h3><hr></summary>
 
 >### 1. Connect to the server
 >From a Terminal session, connect to a Linux VM using the command: **_ssh <user>@<ip_address>_** or **_ssh <user>@<ip_address> -p <port_number>_** if you are connecting to a port other then TCP port 22. The 'IP address' can also be the FQDN of the server you are connecting to.
@@ -12,25 +12,27 @@
 >>```
 >Press enter. Then answer "yes" and provide your password when prompted.
 >   
-### 2. Update the server
-sudo yum update && sudo yum upgrade
-### 3. Create a user 
-The user will be added the user to the 'wheel' group, so the user can manage the server.<br>
-This step is not really needed. But this is to avoid login onto the server as root. You can do this will multiple lines of commands or a single line of command.
-#### Create a user with a series of commands
-Switch to the root user.
-```bash
-sudo -i
-```
-Create the user and set the user's home directory with '-m'
-```bash
-adduser -m bob
-```
-Configure the user's password
-```bash
-passwd bob
-```
-Add the user to the 'wheel' (sudo) group
+>### 2. Update the server
+>>sudo yum update && sudo yum upgrade
+>
+>### 3. Create a user 
+>>The user will be added the user to the 'wheel' group, so the user can manage the server.<br>
+>>This step is not really needed. But this is to avoid login onto the server as root. You can do this will multiple lines of commands or a single line of command.
+>>
+>>#### Create a user with a series of commands
+>>Switch to the root user.
+>>```bash
+>>sudo -i
+>>```
+>>Create the user and set the user's home directory with '-m'
+>>```bash
+>>adduser -m bob
+>>```
+>>Configure the user's password
+>>```bash
+>>passwd bob
+>>```
+>>Add the user to the 'wheel' (sudo) group
 ```bash
 usermod -aG wheel bob
 ```
@@ -46,16 +48,16 @@ View the user's working directory
 ```bash
 pwd
 ```
-or
+>>or
 
-#### Create a user with a single line 
-```bash
-sudo useradd -m bob && sudo passwd bob && usermod -aG wheel bob
-```
-Now, you can connect to your Linux device using the new user's (bob) credentials:
-```bash
-ssh bob@<ip_address>
-```
+>>#### Create a user with a single line 
+>>```bash
+>>sudo useradd -m bob && sudo passwd bob && usermod -aG wheel bob
+>>```
+>>Now, you can connect to your Linux device using the new user's (bob) credentials:
+>>```bash
+>>ssh bob@<ip_address>
+>>```
 **Note: this is not needed**<br>
 Certificate-based authentication is also an option: Example of a Windows device with PowerShell<br>
 On your local device (Windows), do the following from a PowerShell session:
@@ -179,11 +181,11 @@ Resources: Microsoft Defender for Endpoint on Linux resources | Microsoft Learn
 </details>
 
 <details>
-<summary><b>Deploy with a Script: RedHat Server</b><hr></summary>
+<summary><h3>Deploy with a Script: RedHat Server</h3><hr></summary>
 </details>
 
 <details>
-<summary><b>Deploy with Ansible: Ubuntu Servers</b><hr></summary>
+<summary><h3>Deploy with Ansible: Ubuntu Servers</h3><hr></summary>
 
 ### Connect to Ansible Control Node
 From a shell (for example PowerShell), connect to your Ansible control node server with the following command:<br> _<**ssh rod@IPAddress -p 45163**>_<br>
