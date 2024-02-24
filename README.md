@@ -1,8 +1,16 @@
 <details>
     <summary><b>Deploy Manually</b></summary>
-1. Create your Linux virtual machines in MyWorkspace
-2. From a PowerShell session, connect to a Linux VM (distro = RHEL in this case)
-    a. Enter the following ssh rod@mw-072.myworkspace.microsoft.com -p 45630 and press enter. Then enter "yes" and provide your password when prompted.
+
+### Create your Linux virtual machines
+2. From a Terminal session, connect to a Linux VM using the command: **_ssh <user>@<IP address>_** or **_ssh <user>@<IP address> -p <port>_** if you are connecting to a port other then TCP port 22. The 'IP address' can also be the FQDN of the server you are connecting to.
+```bash
+ssh <user>@<IP address> -p 45163
+```
+or
+```bash
+ssh <user>@<IP address> -p 45163
+```
+Press enter. Then enter "yes" and provide your password when prompted.
     
     
     b. sudo yum update to get the update packages
