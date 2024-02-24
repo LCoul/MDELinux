@@ -125,7 +125,7 @@ ssh -i "LocalHostKey" bob@<ip_address>
 [RHEL and variants (CentOS, Fedora, Oracle Linux, Amazon Linux 2, Rocky and Alma)](https://learn.microsoft.com/en-us/microsoft-365/security/defender-endpoint/linux-install-manually?view=o365-worldwide#rhel-and-variants-centos-fedora-oracle-linux-amazon-linux-2-rocky-and-alma)
 ##### Locate the installer script
 - Use hostnamectl command to identify system related information including distribution and release version.<br>
-![Uninstall Ansible](/rhel_hostnamectl.png)
+![Uninstall Ansible](/rhel_hostnamectl.png)<br>
 | Distro & Version  | Package Location |
 |----------|----------|
 | RHEL/Centos/Oracle 9.0-9.8   | [RHEL/Centos/Oracle 9.0-9.8](https://packages.microsoft.com/config/rhel/9/prod.repo)   |
