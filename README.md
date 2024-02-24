@@ -132,7 +132,7 @@ ssh -i "LocalHostKey" bob@<ip_address>
 
 | Distro & Version  | Package |
 |----------|----------|
-| Row 1    | Data 1   |
+| Alma 8.4 and higher   | [Alma 8.4 and higher package](https://packages.microsoft.com/config/alma/8/prod.repo)   |
 | Row 2    | Data 2   |
 | Row 3    | Data 3   |
 | Row 4    | Data 4   |
