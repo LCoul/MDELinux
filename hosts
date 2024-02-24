@@ -8,10 +8,10 @@ ubtc ansible_ssh_host=10.160.124.6
 ubtd ansible_ssh_host=10.160.124.7
 
 [dev]
-srvb ansible_ssh_host=10.160.124.9
+rhela ansible_ssh_host=10.160.124.
 srvc ansible_ssh_host=10.160.124.10
 
 [prod]
+rhelb ansible_ssh_host=10.160.124.
 srvx ansible_ssh_host=10.160.124.11
-srvy ansible_ssh_host=10.160.124.18
 srvz ansible_ssh_host=10.160.124.19
