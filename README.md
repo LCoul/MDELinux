@@ -1,6 +1,5 @@
 <details>
-<summary><b>Deploy Manually: RedHat Server</b></summary>
-=====
+<summary><b>Deploy Manually: RedHat Server</b></hr></summary>
 
 ### 1. Connect to the server
 From a Terminal session, connect to a Linux VM using the command: **_ssh <user>@<ip_address>_** or **_ssh <user>@<ip_address> -p <port_number>_** if you are connecting to a port other then TCP port 22. The 'IP address' can also be the FQDN of the server you are connecting to.
