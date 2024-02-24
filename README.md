@@ -1,5 +1,5 @@
 <details>
-<summary><b>Deploy Manually: RedHat Server</b><hr></summary>
+### <summary><b>Deploy Manually: RedHat Server</b><hr></summary>
 
 >### 1. Connect to the server
 >From a Terminal session, connect to a Linux VM using the command: **_ssh <user>@<ip_address>_** or **_ssh <user>@<ip_address> -p <port_number>_** if you are connecting to a port other then TCP port 22. The 'IP address' can also be the FQDN of the server you are connecting to.
@@ -258,7 +258,6 @@ For example:
 ![Create admin user](/image-1.png)
 </details>
 
-<br>
 
 ### Reference Documents
 [Deploy Microsoft Defender for Endpoint on Linux manually](https://learn.microsoft.com/en-us/microsoft-365/security/defender-endpoint/linux-install-manually?view=o365-worldwide)<br>
