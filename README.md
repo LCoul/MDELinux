@@ -125,33 +125,22 @@ ssh -i "LocalHostKey" bob@<ip_address>
 [RHEL and variants (CentOS, Fedora, Oracle Linux, Amazon Linux 2, Rocky and Alma)](https://learn.microsoft.com/en-us/microsoft-365/security/defender-endpoint/linux-install-manually?view=o365-worldwide#rhel-and-variants-centos-fedora-oracle-linux-amazon-linux-2-rocky-and-alma)
 ##### Locate the installer script
 - Use hostnamectl command to identify system related information including distribution and release version.<br>
-| Distro & Version        | Package                                                                                   |
-|-------------------------|-------------------------------------------------------------------------------------------|
-| Alma 8.4 and higher    | [Alma 8.4 and higher package](https://packages.microsoft.com/config/alma/8/prod.repo)     |
-| Alma 9.2 and higher    | [Alma 9.2 and higher package](https://packages.microsoft.com/config/alma/9/prod.repo)     |
-
-| Distro & Version  | Package |
+![Uninstall Ansible](/rhel_hostnamectl.png)
+| Distro & Version  | Package Location |
 |----------|----------|
-| Alma 8.4 and higher   | [Alma 8.4 and higher package](https://packages.microsoft.com/config/alma/8/prod.repo)   |
-| Row 2    | Data 2   |
-| Row 3    | Data 3   |
-| Row 4    | Data 4   |
-| Row 5    | Data 5   |
-| Row 6    | Data 6   |
-| Row 7    | Data 7   |
-| Row 8    | Data 8   |
-| Row 9    | Data 9   |
-| Row 10   | Data 10  |
-
-
+| RHEL/Centos/Oracle 9.0-9.8   | [RHEL/Centos/Oracle 9.0-9.8](https://packages.microsoft.com/config/rhel/9/prod.repo)   |
+| RHEL/Centos/Oracle 8.0-8.8    | [RHEL/Centos/Oracle 8.0-8.8](https://packages.microsoft.com/config/rhel/8/prod.repo)  |
+| RHEL/Centos/Oracle 7.2-7.9 & Amazon    | [RHEL/Centos/Oracle 7.2-7.9 & Amazon](https://packages.microsoft.com/config/rhel/7.2/prod.repo)   |
 
 - Install yum-utils if it isn't already installed: 
 ```bash
 sudo yum install yum-utils
 ```
-        iii. sudo yum-config-manager --add-repo=https://packages.microsoft.com/config/rhel/9.0/prod.repo
-        
-    b. Application installation
+- Add the repository to your list of packages (just an example for Rhel 9.3)
+```bash
+sudo yum-config-manager --add-repo=https://packages.microsoft.com/config/rhel/9.0/prod.repo
+```
+Application installation
         i. yum repolist to list all repositories
         ii. sudo yum --enablerepo=packages-microsoft-com-prod install mdatp to install the package from the production repository.
         iii. sudo mdatp edr tag set --name GROUP --value 'Rhel-Linux' to set the device tag.
