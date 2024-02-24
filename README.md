@@ -1,5 +1,6 @@
 <details>
-    <summary><b>Deploy Manually: RedHat Server</b></summary>
+<summary><b>Deploy Manually: RedHat Server</b></summary>
+=====
 
 ### 1. Connect to the server
 From a Terminal session, connect to a Linux VM using the command: **_ssh <user>@<ip_address>_** or **_ssh <user>@<ip_address> -p <port_number>_** if you are connecting to a port other then TCP port 22. The 'IP address' can also be the FQDN of the server you are connecting to.
@@ -56,6 +57,7 @@ Now, you can connect to your Linux device using the new user's (bob) credentials
 ```bash
 ssh bob@<ip_address>
 ```
+**Note: this is not needed**<br>
 Certificate-based authentication is also an option: Example of a Windows device with PowerShell<br>
 On your local device (Windows), do the following from a PowerShell session:
 Generate a private/public key pair and provide the name LocalHostKey for example when prompted and do not provide any password (two files will be created, one for the private key 'LocalHostKey' and one for the public key 'LocalHostKey.pub').
@@ -178,11 +180,11 @@ Resources: Microsoft Defender for Endpoint on Linux resources | Microsoft Learn
 </details>
 
 <details>
-    <summary><b>Deploy with a Script: RedHat Server</b></summary>
+<summary><b>Deploy with a Script: RedHat Server</b></summary>
 </details>
 
 <details>
-    <summary><b>Deploy with Ansible: Ubuntu Servers</b></summary>
+<summary><b>Deploy with Ansible: Ubuntu Servers</b></summary>
 
 ### Connect to Ansible Control Node
 From a shell (for example PowerShell), connect to your Ansible control node server with the following command:<br> _<**ssh rod@IPAddress -p 45163**>_<br>
@@ -263,7 +265,7 @@ For example:
 [Deploy Microsoft Defender for Endpoint on Linux manually](https://learn.microsoft.com/en-us/microsoft-365/security/defender-endpoint/linux-install-manually?view=o365-worldwide)<br>
 [Deploy Microsoft Defender for Endpoint on Linux with a Script](https://learn.microsoft.com/en-us/microsoft-365/security/defender-endpoint/linux-install-manually?view=o365-worldwide#installer-script)<br>
 [Deploy Microsoft Defender for Endpoint on Linux with Ansible](https://learn.microsoft.com/en-us/microsoft-365/security/defender-endpoint/linux-install-with-ansible?view=o365-worldwide)<br>
-[Installing Ansible - Ansible Documentation](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html)<br>
+[Install Ansible - Ansible](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html)<br>
 [Install pipx](https://pipx.pypa.io/stable/)
 
 
