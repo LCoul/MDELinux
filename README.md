@@ -130,7 +130,7 @@ ssh -i "LocalHostKey" bob@<ip_address>
 | Alma 8.4 and higher    | [Alma 8.4 and higher package](https://packages.microsoft.com/config/alma/8/prod.repo)     |
 | Alma 9.2 and higher    | [Alma 9.2 and higher package](https://packages.microsoft.com/config/alma/9/prod.repo)     |
 
-| Column 1 | Column 2 |
+| Distro & Version  | Package |
 |----------|----------|
 | Row 1    | Data 1   |
 | Row 2    | Data 2   |
@@ -142,6 +142,8 @@ ssh -i "LocalHostKey" bob@<ip_address>
 | Row 8    | Data 8   |
 | Row 9    | Data 9   |
 | Row 10   | Data 10  |
+
+
 
 - Install yum-utils if it isn't already installed: 
 ```bash
