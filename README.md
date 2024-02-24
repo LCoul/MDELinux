@@ -1,16 +1,5 @@
 <details>
     <summary><h1>Deploy Manually</h1></summary>
-    // Color Name Value
-<p style="color: skyblue">Welcome to freeCodeCamp!</p>
-
-// Hex Value
-<p style="color: #87CEEB">Welcome to freeCodeCamp!</p>
-
-// RGB Value
-<p style="color: rgb(135,206,235)">Welcome to freeCodeCamp!</p>
-
-// HSL Value
-<p style="color: hsl(197, 71%, 73%)">Welcome to freeCodeCamp!</p>
 </details>
 
 <details>
