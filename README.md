@@ -8,7 +8,6 @@
 
 <details>
     <summary>Deploy with Ansible</summary>
-</details
 
 # Deploy MDE Using Ansible
 
@@ -83,6 +82,7 @@ su - lessi
 ```
 For example:
 ![Create admin user](/image-1.png)
+</details>
 
 <br>
 
