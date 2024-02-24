@@ -20,9 +20,9 @@
 >>This step is not really needed. But this is to avoid login onto the server as root. You can do this will multiple lines of commands or a single line of command.
 >>
 >>#### Create a user with a series of commands
->>Switch to the root user.
->>```bash
->>sudo -i
+>>>Switch to the root user.
+>>>```bash
+>>>sudo -i
 >>```
 >>Create the user and set the user's home directory with '-m'
 >>```bash
