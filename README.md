@@ -1,3 +1,15 @@
+<details>
+    <summary>Deploy Manually</summary>
+</details>
+
+<details>
+    <summary>Deploy with a Script</summary>
+</details>
+
+<details>
+    <summary>Deploy with Ansible</summary>
+</details
+
 # Deploy MDE Using Ansible
 
 ## Connect to Ansible COntrol Node
@@ -42,6 +54,16 @@ Create a file named hosts and add your Linux devices to the file<br>
 sudo vim ansible/hosts
 ```
 ### Install Ansible
+```bash
+ansible-playbook -K install_mdatp.yml -i hosts
+```
+![Install Ansible](/install_ansible.mp4)
+
+### Uninstall Ansible
+```bash
+ansible-playbook -K uninstall_mdatp.yml -i hosts
+```
+![Uninstall Ansible](/)
 
 ## Ansible Managed Nodes
 
