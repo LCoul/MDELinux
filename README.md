@@ -1,13 +1,13 @@
 <details>
-    <summary><h2>Deploy Manually</h2></summary>
+    <summary><b>Deploy Manually</b></summary>
 </details>
 
 <details>
-    <summary><h2>Deploy with a Script</h2></summary>
+    <summary><b>Deploy with a Script</b></summary>
 </details>
 
 <details>
-    <summary><h2>Deploy with Ansible</h2></summary>
+    <summary><b>Deploy with Ansible</b></summary>
 
 ### Connect to Ansible Control Node
 From a shell (for example PowerShell), connect to your Ansible control node server with the following command:<br> _<**ssh rod@IPAddress -p 45163**>_<br>
@@ -16,8 +16,8 @@ The IPAddress could also be the FQDN of the server, **-p** specifies the ssh por
 ssh rod@IPAddress -p 45163
 ```
 
-## Ansible Control Node
-### Basic Configurations
+### Configure Ansible Control Node
+#### Basic Configurations
 View the details of the control node
 Update and upgrade the server<br>
 ```bash
@@ -50,19 +50,19 @@ Create a file named hosts and add your Linux devices to the file<br>
 ```bash
 sudo vim ansible/hosts
 ```
-### Install Ansible
+#### Install Ansible
 ```bash
 ansible-playbook -K install_mdatp.yml -i hosts
 ```
 ![Install Ansible](/)
 
-### Uninstall Ansible
+#### Uninstall Ansible
 ```bash
 ansible-playbook -K uninstall_mdatp.yml -i hosts
 ```
 ![Uninstall Ansible](/)
 
-## Ansible Managed Nodes
+### Configure Ansible Managed Nodes
 
 Create an Ansible administrator user account running the following command:<br>
 _<sudo useradd -m user && sudo passwd user && sudo usermod -aG sudo user>_<br>
@@ -84,7 +84,7 @@ For example:
 
 <br>
 
-## Reference Documents
+### Reference Documents
 [Deploy Microsoft Defender for Endpoint on Linux with Ansible](https://learn.microsoft.com/en-us/microsoft-365/security/defender-endpoint/linux-install-with-ansible?view=o365-worldwide)<br>
 [Installing Ansible - Ansible Documentation](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html)
 
