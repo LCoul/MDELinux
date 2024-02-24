@@ -1,5 +1,5 @@
 <details>
-    <summary>Deploy Manually</summary>
+    <summary><h1 style="background-color:DodgerBlue;">Deploy Manually</h1></summary>
 </details>
 
 <details>
