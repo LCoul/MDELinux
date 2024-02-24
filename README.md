@@ -1,11 +1,11 @@
 <details>
 <summary><b>Deploy Manually: RedHat Server</b><hr></summary>
 
-> ### 1. Connect to the server
-From a Terminal session, connect to a Linux VM using the command: **_ssh <user>@<ip_address>_** or **_ssh <user>@<ip_address> -p <port_number>_** if you are connecting to a port other then TCP port 22. The 'IP address' can also be the FQDN of the server you are connecting to.
-```bash
-ssh <user>@<ip_address>
-```
+>### 1. Connect to the server
+>From a Terminal session, connect to a Linux VM using the command: **_ssh <user>@<ip_address>_** or **_ssh <user>@<ip_address> -p <port_number>_** if you are connecting to a port other then TCP port 22. The 'IP address' can also be the FQDN of the server you are connecting to.
+>```bash
+>ssh <user>@<ip_address>
+>```
 or
 ```bash
 ssh <user>@<ip_address> -p <port_number>
@@ -179,11 +179,11 @@ Resources: Microsoft Defender for Endpoint on Linux resources | Microsoft Learn
 </details>
 
 <details>
-<summary><b>Deploy with a Script: RedHat Server</b></summary>
+<summary><b>Deploy with a Script: RedHat Server</b><hr></summary>
 </details>
 
 <details>
-<summary><b>Deploy with Ansible: Ubuntu Servers</b></summary>
+<summary><b>Deploy with Ansible: Ubuntu Servers</b><hr></summary>
 
 ### Connect to Ansible Control Node
 From a shell (for example PowerShell), connect to your Ansible control node server with the following command:<br> _<**ssh rod@IPAddress -p 45163**>_<br>
