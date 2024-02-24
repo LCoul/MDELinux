@@ -1,36 +1,64 @@
 <details>
-    <summary><b>Deploy Manually</b></summary>
+    <summary><b>Deploy Manually: RedHat Server</b></summary>
 
-### Create your Linux virtual machines
-2. From a Terminal session, connect to a Linux VM using the command: **_ssh <user>@<IP address>_** or **_ssh <user>@<IP address> -p <port>_** if you are connecting to a port other then TCP port 22. The 'IP address' can also be the FQDN of the server you are connecting to.
+#### Connect to the server
+From a Terminal session, connect to a Linux VM using the command: **_ssh <user>@<ip_address>_** or **_ssh <user>@<ip_address> -p <port_number>_** if you are connecting to a port other then TCP port 22. The 'IP address' can also be the FQDN of the server you are connecting to.
 ```bash
-ssh <user>@<IP address> -p 45163
+ssh <user>@<ip_address>
 ```
 or
 ```bash
-ssh <user>@<IP address> -p 45163
+ssh <user>@<ip_address> -p <port_number>
 ```
-Press enter. Then enter "yes" and provide your password when prompted.
+Press enter. Then answer "yes" and provide your password when prompted.
     
-    
-    b. sudo yum update to get the update packages
-    c. sudo yum upgrade
-    d. Create a user (not really needed - this is to just create a user with a password that you can easily remember) and add the user to the wheel (sudo) group - you can do this on multiple lines or a single line.
-    e. Type sudo -i to switch to the root user.
-        i. Multiple lines of commands to create a user:
-        adduser bob[to create new user]
-        passwd bob[to configure a password for the user]
-        usermod -aG wheel bob[to make user a sudo user]
-        id bob[to verify user sudo status]
-        su - bob[to log in as bob]
-        pwd [to view the user's working directory]
-        
-        Or
-        
-        ii. Single line of command: useradd bob && passwd bob && usermod -aG wheel bob
-        
-        Now, you can connect to your Linux device using the new user's (bob) credentials with the following line for example: ssh bob@mw-072.myworkspace.microsoft.com -p 45630
-        iii. But even better, do you really want to be bother using a password to authenticate? I am guessing no; so, access your Linux device in a very secure manner with a certificate-based authentication!
+#### Update the server
+sudo yum update && sudo yum upgrade
+#### Create a user 
+The user will be added the user to the 'wheel' group, so the user can manage the server.<br>
+This step is not really needed. But this is to avoid login onto the server as root. You can do this will multiple lines of commands or a single line of command.
+##### Create a user with a series of commands
+1. Switch to the root user.
+```bash
+sudo -i
+```
+2. Create the user and set the user's home directory with '-m'
+```bash
+adduser -m bob
+```
+3. Configure the user's password
+```bash
+passwd bob
+```
+4. Add the user to the 'wheel' (sudo) group
+```bash
+usermod -aG wheel bob
+```
+5. Verify the user belongs to the 'wheel' group
+```bash
+id bob
+```
+6. Login as the new user
+```bash
+su - bob
+```
+7. View the user's working directory
+```bash
+pwd
+```
+or
+
+##### Create a user with a single line 
+```bash
+sudo useradd -m bob && sudo passwd bob && usermod -aG wheel bob
+```
+Now, you can connect to your Linux device using the new user's (bob) credentials with the following line for example: ssh bob@mw-072.myworkspace.microsoft.com -p 45630
+
+```bash
+ssh <user>@<ip_address> or ssh <user>@<ip_address> -p <port_number>
+```
+
+But even better, do you really want to be bother using a password to authenticate? I am guessing no; so, access your Linux device in a very secure manner with a certificate-based authentication!
         
         On your local device (Microsoft issued or other), do the following from a PowerShell session:
         
@@ -134,11 +162,11 @@ Resources: Microsoft Defender for Endpoint on Linux resources | Microsoft Learn
 </details>
 
 <details>
-    <summary><b>Deploy with a Script</b></summary>
+    <summary><b>Deploy with a Script: RedHat Server</b></summary>
 </details>
 
 <details>
-    <summary><b>Deploy with Ansible</b></summary>
+    <summary><b>Deploy with Ansible: Ubuntu Server</b></summary>
 
 ### Connect to Ansible Control Node
 From a shell (for example PowerShell), connect to your Ansible control node server with the following command:<br> _<**ssh rod@IPAddress -p 45163**>_<br>
