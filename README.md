@@ -33,21 +33,21 @@
 >>passwd bob
 >>```
 >>Add the user to the 'wheel' (sudo) group
-```bash
-usermod -aG wheel bob
-```
-Verify the user belongs to the 'wheel' group
-```bash
-id bob
-```
-Login as the new user
-```bash
-su - bob
-```
-View the user's working directory
-```bash
-pwd
-```
+>>```bash
+>>usermod -aG wheel bob
+>>```
+>>Verify the user belongs to the 'wheel' group
+>>```bash
+>>id bob
+>>```
+>>Login as the new user
+>>```bash
+>>su - bob
+>>```
+>>View the user's working directory
+>>```bash
+>>pwd
+>>```
 >>or
 
 >>#### Create a user with a single line 
@@ -58,7 +58,7 @@ pwd
 >>```bash
 >>ssh bob@<ip_address>
 >>```
-**Note: this is not needed**<br>
+><hr>**Note: this is not needed**<br>
 Certificate-based authentication is also an option: Example of a Windows device with PowerShell<br>
 On your local device (Windows), do the following from a PowerShell session:
 Generate a private/public key pair and provide the name LocalHostKey for example when prompted and do not provide any password (two files will be created, one for the private key 'LocalHostKey' and one for the public key 'LocalHostKey.pub').
