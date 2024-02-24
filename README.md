@@ -124,7 +124,7 @@ ssh -i "LocalHostKey" bob@<ip_address>
 ### 4. Install MDE
 [RHEL and variants (CentOS, Fedora, Oracle Linux, Amazon Linux 2, Rocky and Alma)](https://learn.microsoft.com/en-us/microsoft-365/security/defender-endpoint/linux-install-manually?view=o365-worldwide#rhel-and-variants-centos-fedora-oracle-linux-amazon-linux-2-rocky-and-alma)
 ##### Locate the installer script
-- Use hostnamectl command to identify system related information including distribution and release version.
+- Use hostnamectl command to identify system related information including distribution and release version.<br>
 | Distro & Version           | Package                                                                               |
 |----------------------------|:-------------------------------------------------------------------------------------:|
 | Alma 8.4 and higher        | [Alma 8.4 and higher package](https://packages.microsoft.com/config/alma/8/prod.repo) |
