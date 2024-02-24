@@ -1,13 +1,13 @@
 <details>
-    <summary><h1>Deploy Manually</h1></summary>
+    <summary><h2>Deploy Manually</h2></summary>
 </details>
 
 <details>
-    <summary>Deploy with a Script</summary>
+    <summary><h2>Deploy with a Script</h2></summary>
 </details>
 
 <details>
-    <summary><b>Deploy with Ansible</b></summary>
+    <summary><h2>Deploy with Ansible</h2></summary>
 
 ### Connect to Ansible Control Node
 From a shell (for example PowerShell), connect to your Ansible control node server with the following command:<br> _<**ssh rod@IPAddress -p 45163**>_<br>
