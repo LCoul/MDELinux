@@ -122,9 +122,18 @@ ssh -i "LocalHostKey" bob@<ip_address>
     sudo scp ~/.ssh/authorized_keys lessi@10.0.0.78:~/.ssh
     
 ### 4. Install MDE
-    a. Locate the installer script
-        i. Use hostnamectl command to identify system related information including release version.
-        ii. Install yum-utils if it isn't already installed: sudo yum install yum-utils
+[RHEL and variants (CentOS, Fedora, Oracle Linux, Amazon Linux 2, Rocky and Alma)](https://learn.microsoft.com/en-us/microsoft-365/security/defender-endpoint/linux-install-manually?view=o365-worldwide#rhel-and-variants-centos-fedora-oracle-linux-amazon-linux-2-rocky-and-alma)
+##### Locate the installer script
+- Use hostnamectl command to identify system related information including distribution and release version.
+| Distro & Version           | Package                                                                               |
+|----------------------------|:-------------------------------------------------------------------------------------:|
+| Alma 8.4 and higher        | [Alma 8.4 and higher package](https://packages.microsoft.com/config/alma/8/prod.repo) |
+| Alma 9.2 and higher        | [Alma 9.2 anh higher package](https://packages.microsoft.com/config/alma/9/prod.repo) |
+
+- Install yum-utils if it isn't already installed: 
+```bash
+sudo yum install yum-utils
+```
         iii. sudo yum-config-manager --add-repo=https://packages.microsoft.com/config/rhel/9.0/prod.repo
         
     b. Application installation
