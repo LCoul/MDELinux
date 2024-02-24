@@ -126,6 +126,7 @@ ssh -i "LocalHostKey" bob@<ip_address>
 ##### Locate the installer script
 - Use hostnamectl command to identify system related information including distribution and release version.<br>
 ![Uninstall Ansible](/rhel_hostnamectl.png)<br>
+
 | Distro & Version  | Package Location |
 |----------|----------|
 | RHEL/Centos/Oracle 9.0-9.8   | [RHEL/Centos/Oracle 9.0-9.8](https://packages.microsoft.com/config/rhel/9/prod.repo)   |
