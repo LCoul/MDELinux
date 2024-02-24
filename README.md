@@ -1,7 +1,7 @@
 <details>
     <summary><b>Deploy Manually: RedHat Server</b></summary>
 
-#### Connect to the server
+#### 1. Connect to the server
 From a Terminal session, connect to a Linux VM using the command: **_ssh <user>@<ip_address>_** or **_ssh <user>@<ip_address> -p <port_number>_** if you are connecting to a port other then TCP port 22. The 'IP address' can also be the FQDN of the server you are connecting to.
 ```bash
 ssh <user>@<ip_address>
@@ -12,98 +12,112 @@ ssh <user>@<ip_address> -p <port_number>
 ```
 Press enter. Then answer "yes" and provide your password when prompted.
     
-#### Update the server
+#### 2. Update the server
 sudo yum update && sudo yum upgrade
-#### Create a user 
+#### 3. Create a user 
 The user will be added the user to the 'wheel' group, so the user can manage the server.<br>
 This step is not really needed. But this is to avoid login onto the server as root. You can do this will multiple lines of commands or a single line of command.
-##### Create a user with a series of commands
-1. Switch to the root user.
+1. Create a user with a series of commands
+* Switch to the root user.
 ```bash
 sudo -i
 ```
-2. Create the user and set the user's home directory with '-m'
+* Create the user and set the user's home directory with '-m'
 ```bash
 adduser -m bob
 ```
-3. Configure the user's password
+* Configure the user's password
 ```bash
 passwd bob
 ```
-4. Add the user to the 'wheel' (sudo) group
+* Add the user to the 'wheel' (sudo) group
 ```bash
 usermod -aG wheel bob
 ```
-5. Verify the user belongs to the 'wheel' group
+* Verify the user belongs to the 'wheel' group
 ```bash
 id bob
 ```
-6. Login as the new user
+* Login as the new user
 ```bash
 su - bob
 ```
-7. View the user's working directory
+* View the user's working directory
 ```bash
 pwd
 ```
 or
 
-##### Create a user with a single line 
+2. Create a user with a single line 
 ```bash
 sudo useradd -m bob && sudo passwd bob && usermod -aG wheel bob
 ```
-Now, you can connect to your Linux device using the new user's (bob) credentials with the following line for example: ssh bob@mw-072.myworkspace.microsoft.com -p 45630
-
+Now, you can connect to your Linux device using the new user's (bob) credentials with the following line for example:
 ```bash
-ssh <user>@<ip_address> or ssh <user>@<ip_address> -p <port_number>
+ssh bob@<ip_address>
 ```
+Certificate-based authentication is also an option: Example of a Windows device with PowerShell
+On your local device (Windows), do the following from a PowerShell session:
+Generate a private/public key pair and provide the name LocalHostKey for example when prompted and do not provide any password (two files will be created, one for the private key (LocalHostKey) and one for the public key(LocalHostKey.pub)).
+```PowerShell
+ssh-keygen -t rsa -C "LocalHost" -f LocalHostKey
+```
+Create a variable to hold the location of the private key, for example:
+```PowerShell
+$keyFile = "E:\Repo\MDE\LocalHostKey"
+```
+Run the following command and note FullControl access for System and Administrators, and Modify and Synchronize for the current user, which are overly permissive, and a Linux system will not allow authentication with such permissions.
+```PowerShell
+Get-Acl $keyFile | Format-List
+```    
+Get the permissions that users and user groups have to access the file
+```PowerShell
+$acl = Get-Acl $keyFile 
+```      
+Get the current username on the device
+```PowerShell
+$username = [System.Security.Principal.WindowsIdentity]::GetCurrent().Name
+```
+        
+Create a new access rule object with the permissions for the ACL and apply the ACL to the file
+```PowerShell
+$accessRule = New-Object System.Security.AccessControl.FileSystemAccessRule($username,"Read","Allow")
+$acl.SetAccessRule($accessRule)
+$acl | Set-Acl $keyFile
+```  
+Disabling the inheritance and removing the existing access rules
+```PowerShell
+$acl.SetAccessRuleProtection($true,$false)
+$acl | Set-Acl $keyFile
+```  
+After applying the ACL and disabling the inheritance, make sure FullControl is no longer granted to the current user
+```PowerShell
+Get-Acl $keyFile | Format-List
+```     
+Finally copy the public key, you'll upload that to your Linux device
+```PowerShell
+Get-Content .\LocalHostKey.pub # and copy the public key; you'll upload that to your Linux machine
+```
+        
+On your Linux machine
+```bash
+mkdir ~/.ssh
+sudo vim ~/.ssh/authorized_keys
+```
+Type 'i' and paste the public key
+Type 'ESC' then ':wq' to exit
 
-But even better, do you really want to be bother using a password to authenticate? I am guessing no; so, access your Linux device in a very secure manner with a certificate-based authentication!
-        
-        On your local device (Microsoft issued or other), do the following from a PowerShell session:
-        
-        Generate a private/public key pair and provide the name LocalHostKey for example when prompted and do not provide any password (two files will be created, one for the private key and one for the public key)
-        ssh-keygen -t rsa -C "LocalHost" 
-        
-        Replace filePath with the path to the file, for example "E:\Repo\MDE\LocalHostKey" and the command will be $keyFile = "E:\Repo\MDE\LocalHostKey"
-        $keyFile = "filePath"
-        
-        Run the following command and note FullControl access for System and Administrators, and Modify and Synchronize for the current user, which are overly permissive, and Linux will not allow authentication with such permissions.
-        Get-Acl $keyFile | Format-List
-        
-        Get the permissions that users and user groups have to access the file
-        $acl = Get-Acl $keyFile 
-        
-        Get the current username on the device
-        $username = [System.Security.Principal.WindowsIdentity]::GetCurrent().Name
-        
-        Create a new access rule object with the permissions for the ACL and apply the ACL to the file
-        $accessRule = New-Object System.Security.AccessControl.FileSystemAccessRule($username,"Read","Allow")
-        $acl.SetAccessRule($accessRule)
-        $acl | Set-Acl $keyFile
-        
-        Disabling the inheritance and removing the existing access rules
-        $acl.SetAccessRuleProtection($true,$false) # $acl | Set-Acl $keyFile
-        
-        # After applying the ACL and disabling the inheritance, make sure FullControl is no longer granted to the current user
-        Get-Acl $keyFile | Format-List
-        
-        # Finally copy the public key, you'll upload that to your Linux device
-        Get-Content .\LocalHostKey.pub and copy the public key; you'll upload that to your Linux machine
-        
-        On your Linux machine
-        mkdir ~/.ssh
-        sudo vim ~/.ssh/authorized_keys
-        Type i and paste the public key
-        Type "ESC" then :wq to exit
-        cat ~/.ssh/authorized_keys to verify the presence of the public key on the Linux machine.
+Verify the presence of the public key on the Linux machine
+```bash
+cat ~/.ssh/authorized_keys
+```
     
-    Now you can connect to your Linux device without a password - example:
+Now you can connect to your Linux device without a password - example:
     ssh -i "LocalHostKey" bob@mw-072.myworkspace.microsoft.com -p 45173
     From the current system, you can also copy the public key to other systems with the following command for example:
     sudo scp ~/.ssh/authorized_keys lessi@10.0.0.78:~/.ssh
     
-3. Install MDE
+#### 4. Install MDE
     a. Locate the installer script
         i. Use hostnamectl command to identify system related information including release version.
         ii. Install yum-utils if it isn't already installed: sudo yum install yum-utils
@@ -166,7 +180,7 @@ Resources: Microsoft Defender for Endpoint on Linux resources | Microsoft Learn
 </details>
 
 <details>
-    <summary><b>Deploy with Ansible: Ubuntu Server</b></summary>
+    <summary><b>Deploy with Ansible: Ubuntu Servers</b></summary>
 
 ### Connect to Ansible Control Node
 From a shell (for example PowerShell), connect to your Ansible control node server with the following command:<br> _<**ssh rod@IPAddress -p 45163**>_<br>
