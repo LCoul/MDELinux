@@ -2,15 +2,15 @@
 <summary><b>Deploy Manually: RedHat Server</b><hr></summary>
 
 >### 1. Connect to the server
-From a Terminal session, connect to a Linux VM using the command: **_ssh <user>@<ip_address>_** or **_ssh <user>@<ip_address> -p <port_number>_** if you are connecting to a port other then TCP port 22. The 'IP address' can also be the FQDN of the server you are connecting to.
+>From a Terminal session, connect to a Linux VM using the command: **_ssh <user>@<ip_address>_** or **_ssh <user>@<ip_address> -p <port_number>_** if you are connecting to a port other then TCP port 22. The 'IP address' can also be the FQDN of the server you are connecting to.
 >>```bash
-ssh <user>@<ip_address>
+>>ssh <user>@<ip_address>
 >>```
-or
+>>or
 >>```bash
-ssh <user>@<ip_address> -p <port_number>
+>>ssh <user>@<ip_address> -p <port_number>
 >>```
-Press enter. Then answer "yes" and provide your password when prompted.
+>Press enter. Then answer "yes" and provide your password when prompted.
 >   
 ### 2. Update the server
 sudo yum update && sudo yum upgrade
