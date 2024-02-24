@@ -53,10 +53,10 @@ or
 > ```bash
 > sudo useradd -m bob && sudo passwd bob && usermod -aG wheel bob
 > ```
-> Now, you can connect to your Linux device using the new user's (bob) credentials:
-> ```bash
-> ssh bob@<ip_address>
-> ```
+Now, you can connect to your Linux device using the new user's (bob) credentials:
+```bash
+ssh bob@<ip_address>
+```
 **Note: this is not needed**<br>
 Certificate-based authentication is also an option: Example of a Windows device with PowerShell<br>
 On your local device (Windows), do the following from a PowerShell session:
