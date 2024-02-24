@@ -18,44 +18,45 @@ sudo yum update && sudo yum upgrade
 The user will be added the user to the 'wheel' group, so the user can manage the server.<br>
 This step is not really needed. But this is to avoid login onto the server as root. You can do this will multiple lines of commands or a single line of command.
 #### Create a user with a series of commands
-Switch to the root user.
-```bash
-sudo -i
-```
-Create the user and set the user's home directory with '-m'
-```bash
-adduser -m bob
-```
-Configure the user's password
-```bash
-passwd bob
-```
-Add the user to the 'wheel' (sudo) group
-```bash
-usermod -aG wheel bob
-```
-Verify the user belongs to the 'wheel' group
-```bash
-id bob
-```
-Login as the new user
-```bash
-su - bob
-```
-View the user's working directory
-```bash
-pwd
-```
+>Switch to the root user.
+>```bash
+>sudo -i
+>```
+>Create the user and set the user's home directory with '-m'
+>```bash
+>adduser -m bob
+>```
+>Configure the user's password
+>```bash
+>passwd bob
+>```
+> Add the user to the 'wheel' (sudo) group
+> ```bash
+> usermod -aG wheel bob
+> ```
+> Verify the user belongs to the 'wheel' group
+> ```bash
+> id bob
+> ```
+> Login as the new user
+> ```bash
+> su - bob
+> ```
+> View the user's working directory
+> ```bash
+> pwd
+> ```
+>```
 or
 
 #### Create a user with a single line 
-```bash
-sudo useradd -m bob && sudo passwd bob && usermod -aG wheel bob
-```
-Now, you can connect to your Linux device using the new user's (bob) credentials:
-```bash
-ssh bob@<ip_address>
-```
+> ```bash
+> sudo useradd -m bob && sudo passwd bob && usermod -aG wheel bob
+> ```
+> Now, you can connect to your Linux device using the new user's (bob) credentials:
+> ```bash
+> ssh bob@<ip_address>
+> ```
 **Note: this is not needed**<br>
 Certificate-based authentication is also an option: Example of a Windows device with PowerShell<br>
 On your local device (Windows), do the following from a PowerShell session:
@@ -258,7 +259,7 @@ For example:
 ![Create admin user](/image-1.png)
 </details>
 
-
+<hr>
 ### Reference Documents
 [Deploy Microsoft Defender for Endpoint on Linux manually](https://learn.microsoft.com/en-us/microsoft-365/security/defender-endpoint/linux-install-manually?view=o365-worldwide)<br>
 [Deploy Microsoft Defender for Endpoint on Linux with a Script](https://learn.microsoft.com/en-us/microsoft-365/security/defender-endpoint/linux-install-manually?view=o365-worldwide#installer-script)<br>
