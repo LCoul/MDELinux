@@ -249,13 +249,14 @@ unzip WindowsDefenderATPOnboardingPackage.zip
 <details>
 <summary><b>Deploy with a Script: RedHat Server</b></summary>
 
+
 Create a folder to store the onboarding files
 ```bash
 mkdir MDE
 cd ./MDE
 ```
 > Download and set the permissions the [mde_installer.sh](https://github.com/microsoft/mdatp-xplat/blob/master/linux/installation/README.md) file from GitHub
->> ``bash
+>> ```bash
 >> curl -o installer.sh https://raw.githubusercontent.com/microsoft/mdatp-xplat/master/linux/installation/mde_installer.sh
 >> ```
 >> View the content of the mde_installer.sh file
