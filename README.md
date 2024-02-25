@@ -19,7 +19,7 @@
 </details>
 
 <details>
-<summary><b>Deploy Manually: RedHat Server</b></summary>
+<summary><b>Deploy Manually: RedHat Server</b></summary><br>
 
 ### 1. Connect to the server
 From a Terminal session, connect to a Linux VM using the command: **_ssh <user>@<ip_address>_** or **_ssh <user>@<ip_address> -p <port_number>_** if you are connecting to a port other then TCP port 22. The 'IP address' can also be the FQDN of the server you are connecting to.
@@ -246,8 +246,7 @@ unzip WindowsDefenderATPOnboardingPackage.zip
 </details>
 
 <details>
-<summary><b>Deploy with a Script: RedHat Server</b></summary>
-
+<summary><b>Deploy with a Script: RedHat Server</b></summary><br>
 
 Create a folder to store the onboarding files
 ```bash
@@ -256,12 +255,13 @@ cd ./MDE
 ```
 > Download and set the permissions the [mde_installer.sh](https://github.com/microsoft/mdatp-xplat/blob/master/linux/installation/README.md) file from GitHub
 >> ```bash
->> curl -o installer.sh https://raw.githubusercontent.com/microsoft/mdatp-xplat/master/linux/installation/mde_installer.sh
+>> curl -o mde_installer.sh https://raw.githubusercontent.com/microsoft/mdatp-xplat/master/linux/installation/mde_installer.sh
 >> ```
 >> View the content of the mde_installer.sh file
 >> ```bash
->> cat mde_installer.sh # make a screen capture of the copyright section
+>> head -n 13 mde_installer.sh # to view the copyright section
 >> ```
+![Installation Script](/assets/pictures/download_installer_script.png)
 >> ```bash
 >> chmod +x mde_installer.sh # to make the file executable
 >> ```
@@ -290,7 +290,7 @@ mdatp health list | grep 'passive\|behavior\|network\|real\|org_id'
 </details>
 
 <details>
-<summary><b>Deploy with Ansible: Ubuntu Servers</b></summary>
+<summary><b>Deploy with Ansible: Ubuntu Servers</b></summary><br>
 
 ### Connect to Ansible Control Node
 From a shell (for example PowerShell), connect to your Ansible control node server with the following command:<br> _<**ssh rod@IPAddress -p 45163**>_<br>
