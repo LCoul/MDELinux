@@ -221,7 +221,7 @@ unzip WindowsDefenderATPOnboardingPackage.zip
 >>mdatp health --field healthy
 >>```
 >>```bash
->>mdatp health list | grep -i 'network\|passive_mode\|automatic_definition\|managed_by\|MDE\|managed\|real_time_protection\|behavior_monitoring\|edr'
+>>mdatp health list | grep -i 'network\|passive_mode\|automatic_definition\|managed_by\|MDE\|managed\|real_time_protection\|behavior_monitoring\|edr|\org_id'
 >>```    
 >>Check the status of the definition update, return value should be up_to_date.
 >>```bash
@@ -250,8 +250,10 @@ unzip WindowsDefenderATPOnboardingPackage.zip
 <summary><b>Deploy with a Script: RedHat Server</b></summary>
 
 Create a folder to store the onboarding files
+```bash
 mkdir MDE
 cd ./MDE
+```
 > Download and set the permissions the [mde_installer.sh](https://github.com/microsoft/mdatp-xplat/blob/master/linux/installation/README.md) file from GitHub
 >> ``bash
 >> curl -o installer.sh https://raw.githubusercontent.com/microsoft/mdatp-xplat/master/linux/installation/mde_installer.sh
@@ -264,16 +266,16 @@ cd ./MDE
 >> chmod +x mde_installer.sh # to make the file executable
 >> ```
 
-> Download the onboarding package on your local device from the [Microsoft Defender portal](https://security.microsoft.com/securitysettings/endpoints)
+> Download the onboarding package on your local device from the [Microsoft Defender portal](https://security.microsoft.com/securitysettings/endpoints)<br>
 > ![Onboarding Package](/assets/pictures/download_onboarding_package.png)
 > Extract the ZIP file and copy the **MicrosoftDefenderATPOnboardingLinuxServer.py** to your Linux server.
 >> ```PowerShell
 >> scp -r MicrosoftDefenderATPOnboardingLinuxServer.py bob@redhat1:~/MDE
 >> ```
 >> Or, if you have some issues transferring the file, do the following:
->> - On your local device, open and copy the content of the MicrosoftDefenderATPOnboardingLinuxServer.py file.
->> - On your Linux Server, with the below command create a MicrosoftDefenderATPOnboardingLinuxServer.py file and paste in the content of the file copied from your local device.
->> :note:**Note**<br>You can use _**vim**, **vi**, **nano**_, or your favorite text editor tool.
+>> - On your local device, open and copy the content of the **MicrosoftDefenderATPOnboardingLinuxServer.py** file.
+>> - On your Linux Server, with the command below, create a MicrosoftDefenderATPOnboardingLinuxServer.py file and paste in the content of the file copied from your local device.
+> :note: **Note**<br>You can use _**vim**, **vi**, **nano**_, or your favorite text editor tool.
 >> ```bash
 >> sudo vim OnboardingLinuxServer.py 
 >> ```
