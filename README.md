@@ -14,7 +14,7 @@
 
 > :warning: **Warning**<br>Switching the channel after the initial installation requires the product to be reinstalled. To switch the product channel: uninstall the existing package, re-configure your device to use the new channel, and follow the steps in this document to install the package from the new location.
 
-> :exclamation: **Caution**<br>Running Defender for Endpoint on Linux side by side with other fanotify-based security solutions is not supported. It can lead to unpredictable results, including hanging the operating system. If there are any other applications on the system that use fanotify in blocking mode, applications are listed in the conflicting_applications field of the mdatp health command output. The Linux FAPolicyD feature uses fanotify in blocking mode, and is therefore unsupported when running Defender for Endpoint in active mode. You can still safely take advantage of Defender for Endpoint on Linux EDR functionality after configuring the antivirus functionality Real Time Protection Enabled to [Passive mode](https://learn.microsoft.com/en-us/microsoft-365/security/defender-endpoint/linux-preferences?view=o365-worldwide#enforcement-level-for-antivirus-engine).
+> :heavy_exclamation_mark: **Caution**<br>Running Defender for Endpoint on Linux side by side with other fanotify-based security solutions is not supported. It can lead to unpredictable results, including hanging the operating system. If there are any other applications on the system that use fanotify in blocking mode, applications are listed in the conflicting_applications field of the mdatp health command output. The Linux FAPolicyD feature uses fanotify in blocking mode, and is therefore unsupported when running Defender for Endpoint in active mode. You can still safely take advantage of Defender for Endpoint on Linux EDR functionality after configuring the antivirus functionality Real Time Protection Enabled to [Passive mode](https://learn.microsoft.com/en-us/microsoft-365/security/defender-endpoint/linux-preferences?view=o365-worldwide#enforcement-level-for-antivirus-engine).
 
 </details>
 
@@ -79,7 +79,7 @@ Now, you can connect to your Linux device using the new user's (bob) credentials
 ```bash
 ssh bob@<ip_address>
 ```
-> :warning: **Note: this is not needed**<br>
+> :information_source: **Note: this is not needed**<br>
 Certificate-based authentication is also an option: Example of a Windows device with PowerShell<br>
 On your local device (Windows), do the following from a PowerShell session:
 Generate a private/public key pair and provide the name LocalHostKey for example when prompted and do not provide any password (two files will be created, one for the private key 'LocalHostKey' and one for the public key 'LocalHostKey.pub').
@@ -207,7 +207,7 @@ unzip WindowsDefenderATPOnboardingPackage.zip
 >```bash
 >mdatp health --field org_id
 >``` 
->**Note**: To onboard a device that was previously offboarded you must remove the mdatp_offboard.json file located at /etc/opt/microsoft/mdatp.
+> :heavy_exclamation_mark: **Note**: To onboard a device that was previously offboarded you must remove the mdatp_offboard.json file located at /etc/opt/microsoft/mdatp.
 >Verify python3 is installed
 >```bash
 >python3 --version # install python3 if it's not installed
@@ -279,7 +279,7 @@ cd ./MDE
 >> Or, if you have some issues transferring the file, do the following:
 >> - On your local device, open and copy the content of the **MicrosoftDefenderATPOnboardingLinuxServer.py** file.
 >> - On your Linux Server, with the command below, create a MicrosoftDefenderATPOnboardingLinuxServer.py file and paste in the content of the file copied from your local device.
-> :note: **Note**<br>You can use _**vim**, **vi**, **nano**_, or your favorite text editor tool.
+> :information_source: **Note**<br>You can use _**vim**, **vi**, **nano**_, or your favorite text editor tool.
 >> ```bash
 >> sudo vim MicrosoftDefenderATPOnboardingLinuxServer.py 
 >> ```
@@ -375,7 +375,7 @@ For example:
 
 <hr>
 
-### <hr>Reference Documents
+### Reference Documents
 [Deploy Microsoft Defender for Endpoint on Linux manually](https://learn.microsoft.com/en-us/microsoft-365/security/defender-endpoint/linux-install-manually?view=o365-worldwide)<br>
 [Deploy Microsoft Defender for Endpoint on Linux with a Script](https://learn.microsoft.com/en-us/microsoft-365/security/defender-endpoint/linux-install-manually?view=o365-worldwide#installer-script)<br>
 [Deploy Microsoft Defender for Endpoint on Linux with Ansible](https://learn.microsoft.com/en-us/microsoft-365/security/defender-endpoint/linux-install-with-ansible?view=o365-worldwide)<br>
