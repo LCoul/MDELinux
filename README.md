@@ -4,14 +4,17 @@
 | How to install MDE on Linux  | Resources |
 |----------|----------|
 |Prerequites|[Reference document](https://learn.microsoft.com/en-us/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint-linux?view=o365-worldwide#prerequisites)|
-|System requirenents|[Reference document][|System requirenents|[Reference document][]|]|
-|System requirenents|[Reference document][]|
-|System requirenents|[Reference document][]|
-|System requirenents|[Reference document][]|
+|Installation instructions|[Reference document](https://learn.microsoft.com/en-us/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint-linux?view=o365-worldwide#installation-instructions)|
+|System requirenents|[Reference document][|System requirenents|[Reference document](https://learn.microsoft.com/en-us/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint-linux?view=o365-worldwide#system-requirements)|
+|External package dependency|[Reference document](https://learn.microsoft.com/en-us/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint-linux?view=o365-worldwide#external-package-dependency)|
+|Configure exclusions and mistake to avoid |[Reference document](https://learn.microsoft.com/en-us/microsoft-365/security/defender-endpoint/common-exclusion-mistakes-microsoft-defender-antivirus?view=o365-worldwide)|
+|Network connections|[Reference document](https://learn.microsoft.com/en-us/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint-linux?view=o365-worldwide#network-connections)|
 
 > :warning: **Warning**<br>Upgrading your operating system to a new major version after the product installation requires the product to be reinstalled. You need to [Uninstall](https://learn.microsoft.com/en-us/microsoft-365/security/defender-endpoint/linux-resources?view=o365-worldwide#uninstall-defender-for-endpoint-on-linux) the existing Defender for Endpoint on Linux, upgrade the operating system, and then reconfigure Defender for Endpoint on Linux following the below steps.
 
 > :warning: **Warning**<br>Switching the channel after the initial installation requires the product to be reinstalled. To switch the product channel: uninstall the existing package, re-configure your device to use the new channel, and follow the steps in this document to install the package from the new location.
+
+> :caution: Caution<br>Running Defender for Endpoint on Linux side by side with other fanotify-based security solutions is not supported. It can lead to unpredictable results, including hanging the operating system. If there are any other applications on the system that use fanotify in blocking mode, applications are listed in the conflicting_applications field of the mdatp health command output. The Linux FAPolicyD feature uses fanotify in blocking mode, and is therefore unsupported when running Defender for Endpoint in active mode. You can still safely take advantage of Defender for Endpoint on Linux EDR functionality after configuring the antivirus functionality Real Time Protection Enabled to [Passive mode](https://learn.microsoft.com/en-us/microsoft-365/security/defender-endpoint/linux-preferences?view=o365-worldwide#enforcement-level-for-antivirus-engine).
 
 </details>
 
