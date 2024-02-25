@@ -18,6 +18,8 @@
 
 </details>
 
+<hr>
+
 <details>
 <summary><b>Deploy Manually: RedHat Server</b></summary>
 
@@ -77,7 +79,7 @@ Now, you can connect to your Linux device using the new user's (bob) credentials
 ```bash
 ssh bob@<ip_address>
 ```
-**Note: this is not needed**<br>
+> :note: **Note: this is not needed**<br>
 Certificate-based authentication is also an option: Example of a Windows device with PowerShell<br>
 On your local device (Windows), do the following from a PowerShell session:
 Generate a private/public key pair and provide the name LocalHostKey for example when prompted and do not provide any password (two files will be created, one for the private key 'LocalHostKey' and one for the public key 'LocalHostKey.pub').
@@ -243,8 +245,9 @@ unzip WindowsDefenderATPOnboardingPackage.zip
 >```bash
 >mdatp threat list
 >```
-
 </details>
+
+<hr>
 
 <details>
 <summary><b>Deploy with a Script: RedHat Server</b></summary>
@@ -278,7 +281,7 @@ cd ./MDE
 >> - On your Linux Server, with the command below, create a MicrosoftDefenderATPOnboardingLinuxServer.py file and paste in the content of the file copied from your local device.
 > :note: **Note**<br>You can use _**vim**, **vi**, **nano**_, or your favorite text editor tool.
 >> ```bash
->> sudo vim OnboardingLinuxServer.py 
+>> sudo vim MicrosoftDefenderATPOnboardingLinuxServer.py 
 >> ```
 Onboard the device to MDE
 ```bash
@@ -288,8 +291,11 @@ Check mdatp status
 ```bash
 mdatp health list | grep 'passive\|behavior\|network\|real\|org_id'
 ```
+<hr>
 
 </details>
+
+<hr>
 
 <details>
 <summary><b>Deploy with Ansible: Ubuntu Servers</b></summary>
@@ -367,6 +373,7 @@ For example:
 ![Create admin user](/assets)
 </details>
 
+<hr>
 
 ### <hr>Reference Documents
 [Deploy Microsoft Defender for Endpoint on Linux manually](https://learn.microsoft.com/en-us/microsoft-365/security/defender-endpoint/linux-install-manually?view=o365-worldwide)<br>
