@@ -79,8 +79,8 @@ Now, you can connect to your Linux device using the new user's (bob) credentials
 ```bash
 ssh bob@<ip_address>
 ```
-> :information_source: **Note: this is not needed**<br>
-Certificate-based authentication is also an option: Example of a Windows device with PowerShell<br>
+> :information_source: **Note**
+**This is not needed**, but certificate-based authentication is also an option.<br>Example of a Windows device with PowerShell<br>
 On your local device (Windows), do the following from a PowerShell session:
 Generate a private/public key pair and provide the name LocalHostKey for example when prompted and do not provide any password (two files will be created, one for the private key 'LocalHostKey' and one for the public key 'LocalHostKey.pub').
 ```PowerShell
@@ -207,7 +207,7 @@ unzip WindowsDefenderATPOnboardingPackage.zip
 >```bash
 >mdatp health --field org_id
 >``` 
-> :heavy_exclamation_mark: **Note**: To onboard a device that was previously offboarded you must remove the mdatp_offboard.json file located at /etc/opt/microsoft/mdatp.
+> :heavy_exclamation_mark: **Note**<br>To onboard a device that was previously offboarded you must remove the mdatp_offboard.json file located at /etc/opt/microsoft/mdatp.
 >Verify python3 is installed
 >```bash
 >python3 --version # install python3 if it's not installed
