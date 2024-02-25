@@ -126,7 +126,7 @@ ssh -i "LocalHostKey" bob@<ip_address>
 ##### Locate the installer script
 - Use hostnamectl command to identify system related information including distribution and release version.<br>
 
-![Uninstall Ansible](/rhel_hostnamectl.png)<br>
+![Uninstall Ansible](/assets/pictures/rhel_hostnamectl.png)<br>
 
 | Distro & Version  | Package Location |
 |----------|----------|
@@ -171,7 +171,7 @@ In Linux, we can share files between computers using scp. scp utilizes ssh to se
 ```bash
 scp -P 45173 "E:\Repo\MDE\WindowsDefenderATPOnboardingPackage.zip" bob@rha:~/MDE
 ```  
-![Linux Server Onboarding Package](/rhel_onboarding_package.png)  
+![Linux Server Onboarding Package](/assets/pictures/rhel_onboarding_package.png)  
 On the Linux machine:
 ```bash 
 ls -l MDE # to verify the presence of the onboarded ZIP file
@@ -278,13 +278,13 @@ sudo vim ansible/hosts
 ```bash
 ansible-playbook -K install_mdatp.yml -i hosts
 ```
-![Install Ansible](/)
+![Install Ansible](/assets)
 
 #### Uninstall Ansible
 ```bash
 ansible-playbook -K uninstall_mdatp.yml -i hosts
 ```
-![Uninstall Ansible](/)
+![Uninstall Ansible](/assets)
 
 ### Configure Ansible Managed Nodes
 
@@ -303,7 +303,7 @@ id lessi
 su - lessi
 ```
 For example:
-![Create admin user](/image-1.png)
+![Create admin user](/assets)
 </details>
 
 
