@@ -7,7 +7,7 @@
 |Installation instructions|[Reference document](https://learn.microsoft.com/en-us/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint-linux?view=o365-worldwide#installation-instructions)|
 |System requirenents|[Reference document](https://learn.microsoft.com/en-us/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint-linux?view=o365-worldwide#system-requirements)|
 |External package dependency|[Reference document](https://learn.microsoft.com/en-us/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint-linux?view=o365-worldwide#external-package-dependency)|
-|Configure exclusions and mistake to avoid |[Reference document](https://learn.microsoft.com/en-us/microsoft-365/security/defender-endpoint/common-exclusion-mistakes-microsoft-defender-antivirus?view=o365-worldwide)|
+|Configure exclusions and mistakes to avoid |[Reference document](https://learn.microsoft.com/en-us/microsoft-365/security/defender-endpoint/common-exclusion-mistakes-microsoft-defender-antivirus?view=o365-worldwide)|
 |Network connections|[Reference document](https://learn.microsoft.com/en-us/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint-linux?view=o365-worldwide#network-connections)|
 
 > :warning: **Warning**<br>Upgrading your operating system to a new major version after the product installation requires the product to be reinstalled. You need to [Uninstall](https://learn.microsoft.com/en-us/microsoft-365/security/defender-endpoint/linux-resources?view=o365-worldwide#uninstall-defender-for-endpoint-on-linux) the existing Defender for Endpoint on Linux, upgrade the operating system, and then reconfigure Defender for Endpoint on Linux following the below steps.
@@ -191,7 +191,7 @@ In Linux, we can share files between computers using scp. scp utilizes ssh to se
 ```bash
 scp -P 45173 "E:\Repo\MDE\WindowsDefenderATPOnboardingPackage.zip" bob@rha:~/MDE
 ```  
-![Linux Server Onboarding Package](/assets/pictures/rhel_onboarding_package.png)  
+![Linux Server Onboarding Package](/assets/pictures/download_onboarding_package.png)  
 On the Linux machine:
 ```bash 
 ls -l MDE # to verify the presence of the onboarded ZIP file
@@ -248,6 +248,44 @@ unzip WindowsDefenderATPOnboardingPackage.zip
 
 <details>
 <summary><b>Deploy with a Script: RedHat Server</b></summary>
+
+Create a folder to store the onboarding files
+mkdir MDE
+cd ./MDE
+> Download and set the permissions the [mde_installer.sh](https://github.com/microsoft/mdatp-xplat/blob/master/linux/installation/README.md) file from GitHub
+>> ``bash
+>> curl -o installer.sh https://raw.githubusercontent.com/microsoft/mdatp-xplat/master/linux/installation/mde_installer.sh
+>> ```
+>> View the content of the mde_installer.sh file
+>> ```bash
+>> cat mde_installer.sh # make a screen capture of the copyright section
+>> ```
+>> ```bash
+>> chmod +x mde_installer.sh # to make the file executable
+>> ```
+
+> Download the onboarding package on your local device from the [Microsoft Defender portal](https://security.microsoft.com/securitysettings/endpoints)
+> ![Onboarding Package](/assets/pictures/download_onboarding_package.png)
+> Extract the ZIP file and copy the **MicrosoftDefenderATPOnboardingLinuxServer.py** to your Linux server.
+>> ```PowerShell
+>> scp -r MicrosoftDefenderATPOnboardingLinuxServer.py bob@redhat1:~/MDE
+>> ```
+>> Or, if you have some issues transferring the file, do the following:
+>> - On your local device, open and copy the content of the MicrosoftDefenderATPOnboardingLinuxServer.py file.
+>> - On your Linux Server, with the below command create a MicrosoftDefenderATPOnboardingLinuxServer.py file and paste in the content of the file copied from your local device.
+>> :note:**Note**<br>You can use _**vim**, **vi**, **nano**_, or your favorite text editor tool.
+>> ```bash
+>> sudo vim OnboardingLinuxServer.py 
+>> ```
+Onboard the device to MDE
+```bash
+sudo ./mde_installer.sh --install --channel prod --onboard ./MicrosoftDefenderATPOnboardingLinuxServer.py --tag GROUP "MDE-Management" --min_req -y
+```
+Check mdatp status
+```bash
+mdatp health list | grep 'passive\|behavior\|network\|real\|org_id'
+```
+
 </details>
 
 <details>
