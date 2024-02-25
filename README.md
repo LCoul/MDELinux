@@ -125,6 +125,7 @@ ssh -i "LocalHostKey" bob@<ip_address>
 [RHEL and variants (CentOS, Fedora, Oracle Linux, Amazon Linux 2, Rocky and Alma)](https://learn.microsoft.com/en-us/microsoft-365/security/defender-endpoint/linux-install-manually?view=o365-worldwide#rhel-and-variants-centos-fedora-oracle-linux-amazon-linux-2-rocky-and-alma)
 ##### Locate the installer script
 - Use hostnamectl command to identify system related information including distribution and release version.<br>
+
 ![Uninstall Ansible](/rhel_hostnamectl.png)<br>
 
 | Distro & Version  | Package Location |
@@ -137,20 +138,29 @@ ssh -i "LocalHostKey" bob@<ip_address>
 ```bash
 sudo yum install yum-utils
 ```
-- Add the repository to your list of packages (just an example for Rhel 9.3)
+- Add the repository to your list of packages (just an example for Rhel 9.3 from the prod channel)
 ```bash
 sudo yum-config-manager --add-repo=https://packages.microsoft.com/config/rhel/9.0/prod.repo
 ```
-Application installation
-        i. yum repolist to list all repositories
-        ii. sudo yum --enablerepo=packages-microsoft-com-prod install mdatp to install the package from the production repository.
-        iii. sudo mdatp edr tag set --name GROUP --value 'Rhel-Linux' to set the device tag.
-        
-        
-        
-    c. Download the onboarding package from Microsoft Defender XDR portal
-        i. Create a folder to store MDE onboarding files: mkdir MDE and cd MDE to navigate in that directory
-        ii. Transfer the onboarding package to your Linux machine: 
+- Install the Microsoft GPG public key
+```bash
+sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
+```
+- Application installation
+> ```bash
+> yum repolist # to list all repositories
+> ```
+> If you have multiple Microsoft repositories, for example, use the following command to install the package from the production channel.
+> ```bash 
+> sudo yum --enablerepo=packages-microsoft-com-prod # install mdatp to install the package from the production repository.
+> ```
+> - Set the device tag
+> ```bash
+> sudo mdatp edr tag set --name GROUP --value 'Rhel-Linux' # to set the device tag.
+> ```        
+Download the onboarding package from Microsoft Defender XDR portal
+Create a folder to store MDE onboarding files: mkdir MDE and cd MDE to navigate in that directory
+Transfer the onboarding package to your Linux machine: 
     
     
     In Linux, we can share files between computers using scp. scp utilizes ssh to securely transfer files. We use the following syntax to copy files from the source machine to the destination machine:
