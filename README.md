@@ -261,7 +261,7 @@ cd ./MDE
 >> ```bash
 >> head -n 13 mde_installer.sh # to view the copyright section
 >> ```
->> ![Installation Script](/assets/pictures/download_installer.png)
+>> ![Installation Script](/assets/download_installer.png)
 >> ```bash
 >> chmod +x mde_installer.sh # to make the file executable
 >> ```
