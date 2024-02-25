@@ -79,7 +79,7 @@ Now, you can connect to your Linux device using the new user's (bob) credentials
 ```bash
 ssh bob@<ip_address>
 ```
-> :note: **Note: this is not needed**<br>
+> :warning: **Note: this is not needed**<br>
 Certificate-based authentication is also an option: Example of a Windows device with PowerShell<br>
 On your local device (Windows), do the following from a PowerShell session:
 Generate a private/public key pair and provide the name LocalHostKey for example when prompted and do not provide any password (two files will be created, one for the private key 'LocalHostKey' and one for the public key 'LocalHostKey.pub').
