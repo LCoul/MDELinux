@@ -158,10 +158,10 @@ sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
 > ```
 > - Set the device tag
 > ```bash
-> sudo mdatp edr tag set --name GROUP --value 'Rhel-Linux' # to set the device tag.
+> sudo mdatp edr tag set --name GROUP --value 'MDE-Management' # to set the device tag.
 > ```        
 - Download the onboarding package from Microsoft Defender XDR portal
-- Create a folder to store MDE onboarding files: 
+Create a folder to store MDE onboarding files: 
 > ```bash
 > mkdir MDE
 > cd MDE # to navigate in that directory
@@ -203,7 +203,7 @@ unzip WindowsDefenderATPOnboardingPackage.zip
 >>```bash
 >>mdatp health list | grep -i 'network\|passive_mode\|automatic_definition\|managed_by\|MDE\|managed\|real_time_protection\|behavior_monitoring\|edr'
 >>```    
->>Check the status of the definitions update, return value should be up_to_date.
+>>Check the status of the definition update, return value should be up_to_date.
 >>```bash
 >>mdatp health --field definitions_status
 >>```
