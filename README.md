@@ -1,7 +1,7 @@
 <details>
 <summary><b>Prerequites and system requirements</b></summary>
 
-> :warning: Upgrading your operating system to a new major version after the product installation requires the product to be reinstalled. You need to [Uninstall](https://learn.microsoft.com/en-us/microsoft-365/security/defender-endpoint/linux-resources?view=o365-worldwide#uninstall-defender-for-endpoint-on-linux) the existing Defender for Endpoint on Linux, upgrade the operating system, and then reconfigure Defender for Endpoint on Linux following the below steps.
+> :warning: Warning<br>Upgrading your operating system to a new major version after the product installation requires the product to be reinstalled. You need to [Uninstall](https://learn.microsoft.com/en-us/microsoft-365/security/defender-endpoint/linux-resources?view=o365-worldwide#uninstall-defender-for-endpoint-on-linux) the existing Defender for Endpoint on Linux, upgrade the operating system, and then reconfigure Defender for Endpoint on Linux following the below steps.
 
 </details>
 
