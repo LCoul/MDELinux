@@ -18,8 +18,6 @@
 
 </details>
 
-<hr>
-
 <details>
 <summary><b>Deploy Manually: RedHat Server</b></summary>
 
@@ -207,7 +205,7 @@ unzip WindowsDefenderATPOnboardingPackage.zip
 >```bash
 >mdatp health --field org_id
 >``` 
-> :information_resource: **Note**<br>To onboard a device that was previously offboarded you must remove the mdatp_offboard.json file located at /etc/opt/microsoft/mdatp.
+> :information_source: **Note**<br>To onboard a device that was previously offboarded you must remove the mdatp_offboard.json file located at /etc/opt/microsoft/mdatp.
 >Verify python3 is installed
 >```bash
 >python3 --version # install python3 if it's not installed
@@ -246,8 +244,6 @@ unzip WindowsDefenderATPOnboardingPackage.zip
 >mdatp threat list
 >```
 </details>
-
-<hr>
 
 <details>
 <summary><b>Deploy with a Script: RedHat Server</b></summary>
@@ -291,11 +287,7 @@ Check mdatp status
 ```bash
 mdatp health list | grep 'passive\|behavior\|network\|real\|org_id'
 ```
-<hr>
-
 </details>
-
-<hr>
 
 <details>
 <summary><b>Deploy with Ansible: Ubuntu Servers</b></summary>
