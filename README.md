@@ -16,6 +16,8 @@
 
 > :exclamation: **Caution**<br>Running Defender for Endpoint on Linux side by side with other fanotify-based security solutions is not supported. It can lead to unpredictable results, including hanging the operating system. If there are any other applications on the system that use fanotify in blocking mode, applications are listed in the conflicting_applications field of the mdatp health command output. The Linux FAPolicyD feature uses fanotify in blocking mode, and is therefore unsupported when running Defender for Endpoint in active mode. You can still safely take advantage of Defender for Endpoint on Linux EDR functionality after configuring the antivirus functionality Real Time Protection Enabled to [Passive mode](https://learn.microsoft.com/en-us/microsoft-365/security/defender-endpoint/linux-preferences?view=o365-worldwide#enforcement-level-for-antivirus-engine).
 
+> :danger: **Danger**<br>Text 
+
 </details>
 
 <details>
