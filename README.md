@@ -138,9 +138,10 @@ ssh -i "LocalHostKey" bob@<ip_address>
 ```bash
 sudo yum install yum-utils
 ```
-- Add the repository to your list of packages (just an example for Rhel 9.3 from the prod channel)
+- Add the repository to your list of packages (Rhel 9.3 from the prod and insiders-fast channels)
 ```bash
 sudo yum-config-manager --add-repo=https://packages.microsoft.com/config/rhel/9.0/prod.repo
+sudo yum-config-manager --add-repo=https://packages.microsoft.com/config/rhel/9.0/insiders-fast.repo
 ```
 - Install the Microsoft GPG public key
 ```bash
@@ -152,54 +153,76 @@ sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
 > ```
 > If you have multiple Microsoft repositories, for example, use the following command to install the package from the production channel.
 > ```bash 
-> sudo yum --enablerepo=packages-microsoft-com-prod # install mdatp to install the package from the production repository.
+> # to install the package from the production repository.
+> sudo yum --enablerepo=packages-microsoft-com-prod install mdatp
 > ```
 > - Set the device tag
 > ```bash
 > sudo mdatp edr tag set --name GROUP --value 'Rhel-Linux' # to set the device tag.
 > ```        
-Download the onboarding package from Microsoft Defender XDR portal
-Create a folder to store MDE onboarding files: mkdir MDE and cd MDE to navigate in that directory
-Transfer the onboarding package to your Linux machine: 
-    
-    
-    In Linux, we can share files between computers using scp. scp utilizes ssh to securely transfer files. We use the following syntax to copy files from the source machine to the destination machine:
-     scp /path/to/local/file username@destination:/path/to/destination, for example the below command will copy the onboarding package from your local computer into the MDE directory of the Linux device.
-     scp -P 45173 "E:\Repo\MDE\WindowsDefenderATPOnboardingPackage.zip" bob@devlab-rhelz:/MDE
-    
-    
-    On the Linux machine, type ls -l MDE (this LS in lowercase) in to verify the presence of the onboarded ZIP file
-    cd MDE and unzip WindowsDefenderATPOnboardingPackage.zip to unzip the file. You'll get the MicrosoftDefenderATPOnboardingLinuxServer.py file
-
-    a. Client configuration
-    Initially the client device is not associated with an organization and the orgId attribute is blank.
-    mdatp health --field org_id 
-    sudo python3 MicrosoftDefenderATPOnboardingLinuxServer.py (Generating /etc/opt/microsoft/mdatp/mdatp_onboard.json ..)
-    mdatp health --field org_id to verify that the device is now associated with your organization and reports a valid organization identifier.
-    
-    Check the health status of the product. A return value of 'true' denotes that the product is functioning as expected.
-    mdatp health --field healthy
-    mdatp health list | grep -i 'network\|passive_mode\|automatic_definition\|managed_by\|MDE\|managed\|real_time_protection\|behavior_monitoring\|edr'
-    
-    Check the status of the definitions update, return value should be up_to_date.
-    mdatp health --field definitions_status
-    
-    Ensure real-time protection is enabled, the return value should be true.
-    mdatp health --field real_time_protection_enabled
-    if not, run the following: sudo mdatp config real-time-protection --value enabled
-    
-    Test MDE on Linux by simulating the download of a malicious file. The file should be quarantined.
-    curl -o ~/eicar.com.txt https://secure.eicar.org/eicar.com.txt
-    
-    List the detected threats
-    mdatp threat list
-    
-    
-    https://aka.ms/LinuxDIY
-    
-    
-    
-Resources: Microsoft Defender for Endpoint on Linux resources | Microsoft Learn
+- Download the onboarding package from Microsoft Defender XDR portal
+- Create a folder to store MDE onboarding files: 
+> ```bash
+> mkdir MDE
+> cd MDE # to navigate in that directory
+> ```
+- Transfer the onboarding package to your Linux machine: 
+In Linux, we can share files between computers using scp. scp utilizes ssh to securely transfer files. We use the following syntax to copy files from the source machine to the destination machine: scp /path/to/local/file username@destination:/path/to/destination, for example the below command will copy the onboarding package from your local computer into the MDE directory of the Linux device.
+```bash
+scp -P 45173 "E:\Repo\MDE\WindowsDefenderATPOnboardingPackage.zip" bob@rha:~/MDE
+```  
+![Linux Server Onboarding Package](/rhel_onboarding_package.png)  
+On the Linux machine:
+```bash 
+ls -l MDE # to verify the presence of the onboarded ZIP file
+```
+- Unzip the onboarding package. You'll get the MicrosoftDefenderATPOnboardingLinuxServer.py file
+```bash
+unzip WindowsDefenderATPOnboardingPackage.zip
+```
+- Client configuration
+>Initially the client device is not associated with an organization and the orgId attribute is blank.
+>```bash
+>mdatp health --field org_id
+>``` 
+>**Note**: To onboard a device that was previously offboarded you must remove the mdatp_offboard.json file located at /etc/opt/microsoft/mdatp.
+>Verify python3 is installed
+>```bash
+>python3 --version # install python3 if it's not installed
+>```
+>Run MicrosoftDefenderATPOnboardingLinuxServer.py
+>sudo python3 MicrosoftDefenderATPOnboardingLinuxServer.py
+> Verify that the device is now associated with your organization and reports a valid organization identifier.
+>```bash
+>mdatp health --field org_id
+>```
+>>Check the health status of the product. A return value of 'true' denotes that the product is functioning as expected.
+>>```bash
+>>mdatp health --field healthy
+>>```
+>>```bash
+>>mdatp health list | grep -i 'network\|passive_mode\|automatic_definition\|managed_by\|MDE\|managed\|real_time_protection\|behavior_monitoring\|edr'
+>>```    
+>>Check the status of the definitions update, return value should be up_to_date.
+>>```bash
+>>mdatp health --field definitions_status
+>>```
+>>Ensure real-time protection is enabled, the return value should be true.
+>>```bash
+>>mdatp health --field real_time_protection_enabled
+>>```
+>>If not, run the following: 
+>>```bash
+>>sudo mdatp config real-time-protection --value enabled # to enable real-time protection
+>>```
+>Test MDE on Linux by simulating the download of a "malicious" eicar file. The file should be quarantined.
+>```bash
+>curl -o ~/eicar.com.txt https://secure.eicar.org/eicar.com.txt
+>```
+>List the detected threats
+>```bash
+>mdatp threat list
+>```
 
 </details>
 
