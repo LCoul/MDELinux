@@ -207,7 +207,7 @@ this will give you the _**MicrosoftDefenderATPOnboardingLinuxServer**.py_ file.
 >mdatp health --field org_id
 >``` 
 > :information_source: **Note**<br>To onboard a device that was previously offboarded you must remove the mdatp_offboard.json file located at /etc/opt/microsoft/mdatp.<br>
->::exclamation: Verify python3 is installed
+>:exclamation: Verify python3 is installed
 >```bash
 >python3 --version # install python3 if it's not installed
 >```
