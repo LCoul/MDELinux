@@ -3,7 +3,7 @@
 
 | Install MDE on Linux  | Resources |
 |----------|----------|
-|Prerequisites|[Reference document](https://learn.microsoft.com/en-us/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint-linux?view=o365-worldwide#prerequisites)|
+|Prerequites|[Reference document](https://learn.microsoft.com/en-us/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint-linux?view=o365-worldwide#prerequisites)|
 |Installation instructions|[Reference document](https://learn.microsoft.com/en-us/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint-linux?view=o365-worldwide#installation-instructions)|
 |System requirenents|[Reference document](https://learn.microsoft.com/en-us/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint-linux?view=o365-worldwide#system-requirements)|
 |External package dependency|[Reference document](https://learn.microsoft.com/en-us/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint-linux?view=o365-worldwide#external-package-dependency)|
@@ -189,7 +189,7 @@ Create a folder to store MDE onboarding files:
 - Transfer the onboarding package to your Linux machine: 
 In Linux, we can share files between computers using scp. scp utilizes ssh to securely transfer files. We use the following syntax to copy files from the source machine to the destination machine: scp /path/to/local/file username@destination:/path/to/destination, for example the below command will copy the onboarding package from your local computer into the MDE directory of the Linux device.
 ```bash
-scp -P 45173 "E:\Repo\MDE\WindowsDefenderATPOnboardingPackage.zip" bob@rha:~/MDE
+ scp "E:\MDE\Linux\WindowsDefenderATPOnboardingPackage.zip" lessi@10.0.0.97:~/MDE
 ```  
 ![Linux Server Onboarding Package](/assets/pictures/download_onboarding_package.png)  
 On the Linux machine:
@@ -200,6 +200,7 @@ ls -l MDE # to verify the presence of the onboarded ZIP file
 ```bash
 unzip WindowsDefenderATPOnboardingPackage.zip
 ```
+this will give you the _**MicrosoftDefenderATPOnboardingLinuxServer**.py_ file.
 - Client configuration
 >Initially the client device is not associated with an organization and the orgId attribute is blank.
 >```bash
