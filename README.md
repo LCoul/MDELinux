@@ -3,7 +3,7 @@
 
 | Install MDE on Linux  | Resources |
 |----------|----------|
-|Prerequites|[Reference document](https://learn.microsoft.com/en-us/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint-linux?view=o365-worldwide#prerequisites)|
+|Prerequisites|[Reference document](https://learn.microsoft.com/en-us/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint-linux?view=o365-worldwide#prerequisites)|
 |Installation instructions|[Reference document](https://learn.microsoft.com/en-us/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint-linux?view=o365-worldwide#installation-instructions)|
 |System requirenents|[Reference document](https://learn.microsoft.com/en-us/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint-linux?view=o365-worldwide#system-requirements)|
 |External package dependency|[Reference document](https://learn.microsoft.com/en-us/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint-linux?view=o365-worldwide#external-package-dependency)|
