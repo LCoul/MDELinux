@@ -310,7 +310,7 @@ mdatp health list | grep 'passive\|behavior\|network\|real\|org_id'
 </details>
 
 <details>
-<summary><b>Deploy with Ansible</b></summary><br>
+<summary><b>Deploy MDE on Linux with Ansible</b></summary><br>
 
 **Example of Ubuntu Servers**
 
