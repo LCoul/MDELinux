@@ -212,7 +212,6 @@ ls /etc/opt/microsoft/mdatp/ # view the presence of the mdatp_offboard.json file
 sudo yum remove mdatp # remove mdatp from the device
 mv -r /etc/opt/microsoft/mdatp/mdatp_onboard.json # remove the mdatp_onboard.json file
 ```
-<br>
 >:exclamation: Verify python3 is installed
 >```bash
 >python3 --version # install python3 if it's not installed
