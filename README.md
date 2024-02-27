@@ -211,7 +211,7 @@ this will give you the _**MicrosoftDefenderATPOnboardingLinuxServer**.py_ file.
 >```bash
 >python3 --version # install python3 if it's not installed
 >```
->Run MicrosoftDefenderATPOnboardingLinuxServer.py
+>Run MicrosoftDefenderATPOnboardingLinuxServer.py to onboard the Linux Server
 >```bash
 >sudo python3 MicrosoftDefenderATPOnboardingLinuxServer.py
 >```
