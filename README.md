@@ -212,10 +212,12 @@ This will give you the _**MicrosoftDefenderATPOnboardingLinuxServer**.py_ file.
 >>ls /etc/opt/microsoft/mdatp/ 
 >>```
 >>Remove mdatp from the device
+>>```bash
 >>sudo yum remove mdatp
+>>```
 >>Remove the mdatp_onboard.json file
 >>```bash
->>mv -r /etc/opt/microsoft/mdatp/mdatp_onboard.json
+>>rm -r /etc/opt/microsoft/mdatp/mdatp_onboard.json
 >>```
 
 >:exclamation: Verify python3 is installed
