@@ -239,7 +239,7 @@ This will give you the _**MicrosoftDefenderATPOnboardingLinuxServer**.py_ file.
 >>mdatp health --field healthy
 >>```
 >>```bash
->>mdatp health | grep -i 'network\|enabled\|managed_by\|MDE-management\|managed\|real_time_protection\|behavior_monitoring\|edr\|org_id'
+>>mdatp health | grep -i 'network\|enabled\|managed_by\|MDE-management\|managed\|real_time_protection\|behavior_monitoring\|edr\|MDE\|org_id'
 >>```    
 >>Check the status of the definition update, return value should be up_to_date.
 >>```bash
