@@ -200,18 +200,24 @@ ls -l MDE # to verify the presence of the onboarded ZIP file
 ```bash
 unzip WindowsDefenderATPOnboardingPackage.zip
 ```
-this will give you the _**MicrosoftDefenderATPOnboardingLinuxServer**.py_ file.
+This will give you the _**MicrosoftDefenderATPOnboardingLinuxServer**.py_ file.
 - Client configuration
 >Initially the client device is not associated with an organization and the orgId attribute is blank.
 >```bash
 >mdatp health --field org_id
 >``` 
-> :information_source: **Note**<br>To onboard a device that was previously offboarded you must remove the mdatp_offboard.json file located at /etc/opt/microsoft/mdatp.<br><br>
+> :information_source: **Note**<br>To onboard a device that was previously offboarded you must remove the mdatp_offboard.json file located at /etc/opt/microsoft/mdatp.<br>
+```bash
+ls /etc/opt/microsoft/mdatp/ # view the presence of the mdatp_offboard.json file 
+sudo yum remove mdatp # remove mdatp from the device
+mv -r /etc/opt/microsoft/mdatp/mdatp_onboard.json # remove the mdatp_onboard.json file
+```
+<br>
 >:exclamation: Verify python3 is installed
 >```bash
 >python3 --version # install python3 if it's not installed
 >```
->Run MicrosoftDefenderATPOnboardingLinuxServer.py to onboard the Linux Server
+>Run MicrosoftDefenderATPOnboardingLinuxServer.py to onboard the Linux Server.
 >```bash
 >sudo python3 MicrosoftDefenderATPOnboardingLinuxServer.py
 >```
@@ -224,7 +230,7 @@ this will give you the _**MicrosoftDefenderATPOnboardingLinuxServer**.py_ file.
 >>mdatp health --field healthy
 >>```
 >>```bash
->>mdatp health list | grep -i 'network\|passive_mode\|automatic_definition\|managed_by\|MDE\|managed\|real_time_protection\|behavior_monitoring\|edr|\org_id'
+>>mdatp health | grep -i 'network\|enabled\|managed_by\|MDE-management\|managed\|real_time_protection\|behavior_monitoring\|edr\|org_id'
 >>```    
 >>Check the status of the definition update, return value should be up_to_date.
 >>```bash
