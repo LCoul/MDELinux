@@ -212,9 +212,9 @@ this will give you the _**MicrosoftDefenderATPOnboardingLinuxServer**.py_ file.
 >python3 --version # install python3 if it's not installed
 >```
 >Run MicrosoftDefenderATPOnboardingLinuxServer.py
-```bash
+>```bash
 >sudo python3 MicrosoftDefenderATPOnboardingLinuxServer.py
-```
+>```
 > Verify that the device is now associated with your organization and reports a valid organization identifier.
 >```bash
 >mdatp health --field org_id
