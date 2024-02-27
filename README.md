@@ -19,9 +19,11 @@
 </details>
 
 <details>
-<summary><b>Deploy Manually: RedHat Server</b></summary><br>
+<summary><b>Deploy MDE on Linux Manually</b></summary><br>
 
-### 1. Connect to the server
+**Example of Red Hat Enterprise Linux 9.3**
+
+### 1. Connect to the server - example Redhat Server
 From a Terminal session, connect to a Linux VM using the command: **_ssh <user>@<ip_address>_** or **_ssh <user>@<ip_address> -p <port_number>_** if you are connecting to a port other then TCP port 22. The 'IP address' can also be the FQDN of the server you are connecting to.
 >```bash
 >ssh <user>@<ip_address>
@@ -262,7 +264,9 @@ This will give you the _**MicrosoftDefenderATPOnboardingLinuxServer**.py_ file.
 </details>
 
 <details>
-<summary><b>Deploy with a Script: RedHat Server</b></summary><br>
+<summary><b>Deploy MDE on Linux with a Script</b></summary><br>
+
+**Example of Red Hat Enterprise Linux 9.3**
 
 Create a folder to store the onboarding files
 ```bash
@@ -306,7 +310,9 @@ mdatp health list | grep 'passive\|behavior\|network\|real\|org_id'
 </details>
 
 <details>
-<summary><b>Deploy with Ansible: Ubuntu Servers</b></summary><br>
+<summary><b>Deploy with Ansible</b></summary><br>
+
+**Example of Ubuntu Servers**
 
 ### Connect to Ansible Control Node
 From a shell (for example PowerShell), connect to your Ansible control node server with the following command:<br> _<**ssh rod@IPAddress -p 45163**>_<br>
