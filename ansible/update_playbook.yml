@@ -1,0 +1,149 @@
+
+- hosts: ubuntu:redhat
+  become: true
+  become_method: sudo
+  tasks:
+    - name: Update & Upgrade System - Ubuntu
+      apt:
+        update_cache: yes
+        upgrade: full
+      when: ansible_os_family == "Debian"
+    - name: Update & Upgrade System - RedHat
+      yum:
+        update_cache: yes
+      when: ansible_os_family == "RedHat"
+
+
+---
+- name: Update systems
+  hosts: redhat:ubuntu
+  become: yes
+
+  tasks:
+    - name: Update the package cache
+      yum:
+        name: '*'
+        state: latest
+      when: ansible_os_family == 'RedHat'
+
+    - name: Reboot if necessary
+      reboot:
+      when: "'reboot will be required' in ansible_check_mode.stdout"
+
+
+---
+- hosts: all
+  gather_facts: yes
+  become: yes
+  tasks:
+    - name: Perform a dist-upgrade
+      ansible.builtin.apt:
+        upgrade: dist
+        update_cache: yes
+
+    - name: Check if a reboot is required
+      ansible.builtin.stat:
+        path: /var/run/reboot-required
+        get_checksum: no
+      register: reboot_required_file
+
+    - name: Reboot the server (if required)
+      ansible.builtin.reboot:
+        when: reboot_required_file.stat.exists == true
+
+    - name: Remove dependencies that are no longer required
+      ansible.builtin.apt:
+        autoremove: yes
+
+
+
+
+
+---
+- name: Playbook to Update cache, upgrade packages, and reboot if necessary
+  hosts: allservers
+  become: yes
+  gather_facts: False
+  tasks:
+    - name: Update apt repo and cache on all Debian/Ubuntu boxes
+      apt:
+        update_cache: yes
+        force_apt_get: yes
+        cache_valid_time: 3600
+
+    - name: Upgrade all packages on servers
+      apt:
+        upgrade: dist
+        force_apt_get: yes
+
+    - name: Check if a reboot is needed on all servers
+      register: reboot_required_file
+      stat:
+        path: /var/run/reboot-required
+        get_md5: no
+
+    - name: Reboot the server if kernel updated
+      reboot:
+        msg: "Reboot initiated by Ansible for kernel updates"
+        connect_timeout: 5
+        reboot_timeout: 300
+        pre_reboot_delay: 0
+        post_reboot_delay: 30
+        test_command: uptime
+      when: reboot_required_file.stat.exists
+
+
+
+
+
+
+
+
+---
+- name: Update Ubuntu and RHEL servers
+  hosts: all
+  become: yes  # Run tasks with root privileges
+
+  tasks:
+    - name: Update Ubuntu (apt)
+      apt:
+        update_cache: yes
+        upgrade: dist
+      when: ansible_os_family == 'Debian'  # Only run on Debian-based systems
+
+    - name: Update RHEL (yum)
+      yum:
+        name: '*'
+        state: latest
+      when: ansible_os_family == 'RedHat'  # Only run on Red Hat-based systems
+      
+    - name: Check if reboot is required
+      command: /usr/sbin/reboot --dry-run
+      register: reboot_required
+      changed_when: false
+
+    - name: Reboot if needed
+      reboot:
+        reboot_timeout: 300
+      when: reboot_required.stdout != ""
+
+    - name: Wait for server to come back online
+      wait_for_connection:
+        timeout: 300
+
+
+
+---
+- name: Reboot Linux Servers (if needed)
+  hosts: all
+  become: yes
+  tasks:
+    - name: Check if reboot is required
+      command: /usr/sbin/reboot --dry-run
+      register: reboot_required
+      changed_when: false
+
+    - name: Reboot the machine
+      reboot:
+      when: reboot_required.stdout != ""
+

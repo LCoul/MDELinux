@@ -1,10 +1,40 @@
-- hosts: dev:prod
-  become: true
+- hosts: ubuntu:redhat
+  become: yes
   tasks:
     - ansible.builtin.include_tasks: onboarding_setup.yml
     - ansible.builtin.include_tasks: add_mdatp_repo.yml
-    - name: Install MDATP
+    - name: Update Ubuntu (apt)
+      apt:
+        update_cache: yes
+        upgrade: dist
+      when: ansible_os_family == 'Debian'  # Only run on Debian-based systems
+
+    - name: Update RHEL (yum)
+      yum:
+        name: '*'
+        state: latest
+      when: ansible_os_family == 'RedHat'  # Only run on Red Hat-based systems
+
+    - name: Install MDATP - Ubuntu
       apt:
         name: mdatp
         state: latest
         update_cache: yes
+      when: ansible_os_family == "Debian"
+
+    - name: Install MDATP - RedHat
+      yum:
+        name: mdatp
+        state: latest
+        update_cache: yes
+      when: ansible_os_family == "RedHat"
+
+    - name: UBUNTU - Setting Device Tag to MDE-Linux
+      ansible.builtin.shell:
+        cmd: mdatp edr tag set --name GROUP --value 'MDE-Management'
+      when: ansible_os_family == "Debian"
+
+    - name: RHEL - Setting Device Tag to MDE-Linux
+      ansible.builtin.shell:
+        cmd: mdatp edr tag set --name GROUP --value 'MDE-Management'
+      when: ansible_os_family == "RedHat"

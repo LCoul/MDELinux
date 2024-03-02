@@ -23,7 +23,7 @@
     name: packages-microsoft-prod
     description: Microsoft Defender for Endpoint
     file: microsoft-prod
-    baseurl: https://packages.microsoft.com/rhel/9/prod/
+    baseurl: https://packages.microsoft.com/rhel/9/prod
     gpgcheck: yes
     enabled: Yes
   when: ansible_os_family == "RedHat"
