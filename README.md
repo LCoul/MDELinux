@@ -239,7 +239,7 @@ This will give you the _**MicrosoftDefenderATPOnboardingLinuxServer**.py_ file.
 >>mdatp health --field healthy
 >>```
 >>```bash
->>mdatp health | grep -i 'network\|enabled\|managed_by\|MDE-management\|managed\|real_time_protection\|behavior_monitoring\|edr\|MDE\|org_id'
+>>mdatp health | grep -i 'network\|enabled\|managed_by\|MDE-management\|managed\|real_time_protection\|behavior_monitoring\|edr\|MDE\|org_id\|tag'
 >>```    
 >>Check the status of the definition update, return value should be up_to_date.
 >>```bash
@@ -397,3 +397,7 @@ For example:
 [Install pipx](https://pipx.pypa.io/stable/)
 
 
+[![Watch the video](/assets/pictures/Year%20of%20AI%20Satya.png)](https://www.youtube.com/watch?v=Vu6Wq8lLUN0)
+
+[<img src="https://img.youtube.com/vi/<VIDEO_ID>/hqdefault.jpg" width="600" height="300"
+/>](https://www.youtube.com/embed/<VIDEO_ID>)

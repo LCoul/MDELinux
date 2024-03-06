@@ -1,17 +1,8 @@
-[control]
-srva ansible_ssh_host=10.160.124.8
-ubta ansible_ssh_host=10.160.124.4
-
-[test]
-ubtb ansible_ssh_host=10.160.124.5
-ubtc ansible_ssh_host=10.160.124.6
-ubtd ansible_ssh_host=10.160.124.7
-
 [dev]
-rhela ansible_ssh_host=10.160.124.
-srvc ansible_ssh_host=10.160.124.10
+rhela ansible_ssh_host=10.0.0.4
+srvc ansible_ssh_host=10.0.0.5
 
 [prod]
-rhelb ansible_ssh_host=10.160.124.
-srvx ansible_ssh_host=10.160.124.11
-srvz ansible_ssh_host=10.160.124.19
+rhelb ansible_ssh_host=10.0.0.6
+srvx ansible_ssh_host=10.0.0.7
+srvz ansible_ssh_host=10.0.0.8
