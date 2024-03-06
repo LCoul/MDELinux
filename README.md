@@ -395,9 +395,3 @@ For example:
 [Deploy Microsoft Defender for Endpoint on Linux with Ansible](https://learn.microsoft.com/en-us/microsoft-365/security/defender-endpoint/linux-install-with-ansible?view=o365-worldwide)<br>
 [Install Ansible - Ansible](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html)<br>
 [Install pipx](https://pipx.pypa.io/stable/)
-
-
-[![Watch the video](/assets/pictures/Year%20of%20AI%20Satya.png)](https://www.youtube.com/watch?v=Vu6Wq8lLUN0)
-
-[<img src="https://img.youtube.com/vi/<VIDEO_ID>/hqdefault.jpg" width="600" height="300"
-/>](https://www.youtube.com/embed/<VIDEO_ID>)
