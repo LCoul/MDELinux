@@ -10,7 +10,7 @@
 |Configure exclusions and mistakes to avoid |[Reference document](https://learn.microsoft.com/en-us/microsoft-365/security/defender-endpoint/common-exclusion-mistakes-microsoft-defender-antivirus?view=o365-worldwide)|
 |Network connections|[Reference document](https://learn.microsoft.com/en-us/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint-linux?view=o365-worldwide#network-connections)|
 
-> :NOTE:
+> :NOTE: **Note**
 In general, don't define exclusions for the following processes:
 
 - `bash`
