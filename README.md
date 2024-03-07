@@ -11,7 +11,7 @@
 |Network connections|[Reference document](https://learn.microsoft.com/en-us/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint-linux?view=o365-worldwide#network-connections)|
 
 > [!Note]
-In general, don't define exclusions for the following processes:
+> In general, don't define exclusions for the following processes:
 - `bash`
 - `java`
 - `python` and `python3`
