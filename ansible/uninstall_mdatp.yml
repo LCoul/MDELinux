@@ -1,7 +1,13 @@
-- hosts: dev:prod
+- hosts: ubuntu:redhat
   become: true
   tasks:
-    - name: Uninstall MDATP
+    - name: Uninstall MDATP - Debian
       apt:
         name: mdatp
         state: absent
+      when: ansible_os_family == "Debian"
+    - name: Uninstall MDATP - RedHat
+      yum:
+        name: mdatp
+        state: absent
+      when: ansible_os_family == "RedHat"
